@@ -17,10 +17,11 @@ mobileNav?.querySelectorAll("a").forEach((link) => link.addEventListener("click"
 const translations = {
   navServices:"Services",navWorks:"Works",navProcess:"Process",navContact:"Contact",
   heroT1:"A development partner that ",heroT2:"moves your business forward",heroT3:".",
-  heroSub:"CodeTas is a technology partner for web and mobile products — from planning through development and operation.",heroCta1:"Talk to us",heroCta2:"See what we do",
+  heroSub:"We support web services, business systems, and AI tools from requirements and design through development and operation. You can talk to us before the scope or budget is finalized.",heroCta1:"Talk to us",heroCta2:"See what we do",
   term1:"Strategy & scoping",term2:"UI/UX design",term3:"Build & verify",term4:"Operating & growing…",
   buildTitle:"From code to something real.",appNav:"Today　 Projects　 Reports",appCta:"+ New task",appListTitle:"Today’s tasks",appTask1:"Review homepage design",appTask2:"Implement login flow",appTask3:"Write release notes",appStatTitle:"Progress today",appStatDone:"18/22 tasks done",appSync:"synced",
   servicesTitle:"Planning to operation, in one continuous line.",servicesSub:"We combine the expertise your business phase requires.",
+  projectFitTitle:"Projects we are best at",projectFitSub:"From shaping the first concept to continuously improving the product.",projectFitCta:"Talk to us before your requirements are finalized",fit1:"New web services and MVP development",fit2:"Features and improvements for existing services",fit3:"Business system design and development",fit4:"AI features and external API integrations",fit5:"Technology selection, cloud architecture, and post-launch operations",
   svc1Title:"Web App Development",svc1Desc:"From internal systems to SaaS and e-commerce — usable, scalable web products.",svc1I1:"Frontend & backend",svc1I2:"Cloud infrastructure & API design",svc1I3:"Performance optimization",
   svc2Title:"Mobile App Development",svc2Desc:"iOS and Android. Comfortable app experiences that fit into daily life.",svc2I1:"iOS & Android apps",svc2I2:"Cross-platform",svc2I3:"Store submission & release support",
   svc3Title:"Desktop App & AI Tool Development",svc3Desc:"macOS apps and AI-powered tools, built with know-how from our own products.",svc3I1:"macOS desktop apps",svc3I2:"AI integration, text & voice input",svc3I3:"API integrations such as Obsidian and Notion",aiPrompt:"Summarize the API design we just agreed on",exportTo:"Export to",saved:"Saved to local history",
