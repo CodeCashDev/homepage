@@ -3,20 +3,99 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="CodeTasは、Web・モバイルアプリの企画から開発・運用までを支えるテクノロジーパートナーです。" />
+    <title>CodeTas｜Web・モバイルアプリ・AIツール開発</title>
+    <meta name="description" content="CodeTasは、Webサービス・モバイルアプリ・業務システム・AIツールの企画、設計、開発、運用を支援する開発パートナーです。アイデアや要件が固まっていない段階からご相談いただけます。" />
+    <link rel="canonical" href="https://www.codetas.com/" />
     <meta name="theme-color" content="#060b16" />
-    <meta property="og:title" content="CodeTas | Web &amp; Mobile Development" />
-    <meta property="og:description" content="事業を前に進める、開発パートナー。" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="CodeTas｜Web・モバイルアプリ・AIツール開発" />
+    <meta property="og:description" content="CodeTasは、Webサービス・モバイルアプリ・業務システム・AIツールの企画、設計、開発、運用を支援する開発パートナーです。" />
+    <meta property="og:url" content="https://www.codetas.com/" />
+    <meta property="og:image" content="https://www.codetas.com/ogp.png" />
     <meta property="og:type" content="website" />
-    <title>CodeTas | Web &amp; Mobile Development</title>
+    <meta property="og:site_name" content="CodeTas" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CodeTas｜Web・モバイルアプリ・AIツール開発" />
+    <meta name="twitter:description" content="CodeTasは、Webサービス・モバイルアプリ・業務システム・AIツールの企画、設計、開発、運用を支援する開発パートナーです。" />
+    <meta name="twitter:image" content="https://www.codetas.com/ogp.png" />
+
+    <!-- Google Search Console (uncomment after setting up verification)
+    <meta name="google-site-verification" content="..." />
+    -->
+
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CodeTas",
+      "url": "https://www.codetas.com/",
+      "logo": "https://www.codetas.com/favicon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@codetas.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CodeTas",
+      "url": "https://www.codetas.com/"
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "まだアイデア段階ですが、相談できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "もちろんです。課題の整理からご一緒しますので、まずは現状をお聞かせください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "費用はどのように決まりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "要件を整理したうえで、スコープに応じてお見積もりします。小さく始めるプランも可能です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "開発期間はどのくらいかかりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "規模によりますが、MVPなら2〜3ヶ月が目安です。"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <a href="#top" class="skip-link">メインコンテンツへスキップ</a>
     <header class="site-header" data-header>
       <div class="container nav-inner">
         <a class="brand" href="#top" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span></a>
@@ -42,7 +121,7 @@
           <div class="hero-copy reveal">
             <p class="pill-label"><i></i> WEB &amp; MOBILE DEVELOPMENT</p>
             <h1><span data-i18n="heroT1">事業を</span><em data-i18n="heroT2">前に進める</em><span data-i18n="heroT3">、<br />開発パートナー。</span></h1>
-            <p class="hero-lead" data-i18n="heroSub">CodeTasは、Webとモバイルアプリの企画から開発・運用までを支えるテクノロジーパートナーです。</p>
+            <p class="hero-lead" data-i18n="heroSub">CodeTasは、Webサービス・モバイルアプリ・業務システム・AIツールの企画、設計、開発、運用を支援する開発パートナーです。要件が固まっていない段階からご相談ください。</p>
             <div class="hero-actions"><a class="button button--large" href="#contact"><span data-i18n="heroCta1">開発について相談する</span><span>→</span></a><a class="button button--outline button--large" href="#services"><span data-i18n="heroCta2">できることを見る</span><span>↓</span></a></div>
           </div>
           <div class="terminal reveal reveal--delay" aria-label="CodeTas terminal">
@@ -88,9 +167,9 @@
           <div class="section-title reveal"><span>01</span><div><p>WHAT WE DO</p><h2 data-i18n="servicesTitle">企画から運用まで、ひと続きで。</h2></div></div>
           <p class="section-lead reveal" data-i18n="servicesSub">事業のフェーズに合わせて、必要な専門性を組み合わせます。</p>
           <div class="blueprints">
-            <article class="blueprint reveal"><header><b>SHEET 01 / 03</b><span>CODETAS ENGINEERING — WEB APPLICATION</span><small>REV 2.0</small></header><div class="blueprint-grid"><div class="blueprint-copy"><h3 data-i18n="svc1Title">Webアプリ開発</h3><p data-i18n="svc1Desc">業務システムからSaaS、ECまで。使いやすく、拡張しやすいWebプロダクトをつくります。</p><ul><li data-i18n="svc1I1">フロントエンド・バックエンド</li><li data-i18n="svc1I2">クラウドインフラ・API設計</li><li data-i18n="svc1I3">パフォーマンス改善</li></ul><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-WEB-001</b></div></div><div class="drawing drawing-web"><div class="browser-mock"><header><i></i><i></i><i></i><span></span></header><main><nav><i></i><b></b><span></span><em></em></nav><h4></h4><p></p><p></p><div><i></i><i></i><i></i></div></main></div></div></div></article>
-            <article class="blueprint reveal"><header><b>SHEET 02 / 03</b><span>CODETAS ENGINEERING — MOBILE APPLICATION</span><small>REV 2.0</small></header><div class="blueprint-grid blueprint-grid--reverse"><div class="drawing drawing-mobile"><div class="phone-mock"><i></i><h4></h4><p></p><b></b><div><span></span><span></span></div><nav><i></i><i></i><i></i><i></i></nav></div></div><div class="blueprint-copy"><h3 data-i18n="svc2Title">モバイルアプリ開発</h3><p data-i18n="svc2Desc">iOS・Androidに対応。日常に溶け込む、快適なアプリ体験を届けます。</p><ul><li data-i18n="svc2I1">iOS・Androidアプリ</li><li data-i18n="svc2I2">クロスプラットフォーム</li><li data-i18n="svc2I3">ストア申請・リリース支援</li></ul><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-APP-002</b></div></div></div></article>
-            <article class="blueprint reveal"><header><b>SHEET 03 / 03</b><span>CODETAS ENGINEERING — DESKTOP / AI TOOLS</span><small>REV 2.0</small></header><div class="blueprint-grid"><div class="blueprint-copy"><h3 data-i18n="svc3Title">デスクトップアプリ・AIツール開発</h3><p data-i18n="svc3Desc">macOSアプリやAIを組み込んだツールを開発します。自社プロダクトで培った知見を活かします。</p><ul><li data-i18n="svc3I1">macOSデスクトップアプリ</li><li data-i18n="svc3I2">AI連携・テキスト / 音声入力</li><li data-i18n="svc3I3">Obsidian・NotionなどのAPI連携</li></ul><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-DSK-003</b></div></div><div class="drawing drawing-ai"><div class="ai-mock"><header><span class="traffic"><i></i><i></i><i></i></span><b>HeyLog</b><em>⌥ SPACE</em></header><main><div class="prompt"><span data-i18n="aiPrompt">さっき決めたAPI設計の要点をまとめて</span><i>●</i></div><div class="answer"><b>AI</b><i></i><i></i><i></i></div><p><span data-i18n="exportTo">書き出し先</span> → <b>Obsidian</b><b>Notion</b></p><small>✓ <span data-i18n="saved">ローカル履歴に保存しました</span></small></main></div></div></div></article>
+            <article class="blueprint reveal"><header><b>SHEET 01 / 03</b><span>CODETAS ENGINEERING — WEB APPLICATION</span><small>REV 2.0</small></header><div class="blueprint-grid"><div class="blueprint-copy"><h3 data-i18n="svc1Title">Webアプリ開発</h3><p data-i18n="svc1Desc">業務システムからSaaS、ECまで。使いやすく、拡張しやすいWebプロダクトをつくります。新規サービスのMVP開発、既存サービスの機能追加・改善、技術選定やクラウド設計も対応します。</p><ul><li data-i18n="svc1I1">フロントエンド・バックエンド</li><li data-i18n="svc1I2">クラウドインフラ・API設計</li><li data-i18n="svc1I3">パフォーマンス改善</li></ul><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-WEB-001</b></div></div><div class="drawing drawing-web"><div class="browser-mock"><header><i></i><i></i><i></i><span></span></header><main><nav><i></i><b></b><span></span><em></em></nav><h4></h4><p></p><p></p><div><i></i><i></i><i></i></div></main></div></div></div></article>
+            <article class="blueprint reveal"><header><b>SHEET 02 / 03</b><span>CODETAS ENGINEERING — MOBILE APPLICATION</span><small>REV 2.0</small></header><div class="blueprint-grid blueprint-grid--reverse"><div class="drawing drawing-mobile"><div class="phone-mock"><i></i><h4></h4><p></p><b></b><div><span></span><span></span></div><nav><i></i><i></i><i></i><i></i></nav></div></div><div class="blueprint-copy"><h3 data-i18n="svc2Title">モバイルアプリ開発</h3><p data-i18n="svc2Desc">iOS・Androidに対応。日常に溶け込む、快適なアプリ体験を届けます。新規アプリの開発から既存アプリの機能追加・リニューアルまで対応します。</p><ul><li data-i18n="svc2I1">iOS・Androidアプリ</li><li data-i18n="svc2I2">クロスプラットフォーム</li><li data-i18n="svc2I3">ストア申請・リリース支援</li></ul><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-APP-002</b></div></div></div></article>
+            <article class="blueprint reveal"><header><b>SHEET 03 / 03</b><span>CODETAS ENGINEERING — DESKTOP / AI TOOLS</span><small>REV 2.0</small></header><div class="blueprint-grid"><div class="blueprint-copy"><h3 data-i18n="svc3Title">デスクトップアプリ・AIツール開発</h3><p data-i18n="svc3Desc">macOSアプリやAIを組み込んだツールを開発します。自社プロダクトで培った知見を活かし、AI機能や外部APIの組み込み、リリース後の運用支援までトータルにサポートします。</p><ul><li data-i18n="svc3I1">macOSデスクトップアプリ</li><li data-i18n="svc3I2">AI連携・テキスト / 音声入力</li><li data-i18n="svc3I3">Obsidian・NotionなどのAPI連携</li></ul><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-DSK-003</b></div></div><div class="drawing drawing-ai"><div class="ai-mock"><header><span class="traffic"><i></i><i></i><i></i></span><b>HeyLog</b><em>⌥ SPACE</em></header><main><div class="prompt"><span data-i18n="aiPrompt">さっき決めたAPI設計の要点をまとめて</span><i>●</i></div><div class="answer"><b>AI</b><i></i><i></i><i></i></div><p><span data-i18n="exportTo">書き出し先</span> → <b>Obsidian</b><b>Notion</b></p><small>✓ <span data-i18n="saved">ローカル履歴に保存しました</span></small></main></div></div></div></article>
           </div>
         </div>
       </section>
