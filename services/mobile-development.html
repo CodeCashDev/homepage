@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>モバイルアプリ開発 | CodeTas</title>
+  <meta name="description" content="CodeTasのモバイルアプリ開発サービス。iOS/Androidネイティブアプリ、Flutter/React Nativeなどのクロスプラットフォーム開発、アプリのリニューアル・機能追加、ストア申請・リリースまでトータルサポート。" />
+  <meta name="keywords" content="モバイルアプリ開発・iOSアプリ・Androidアプリ・Flutter・アプリリニューアル" />
+  <link rel="canonical" href="https://www.codetas.com/services/mobile-development.html" />
+  <meta name="theme-color" content="#060b16" />
+  <meta property="og:title" content="モバイルアプリ開発 | CodeTas" />
+  <meta property="og:description" content="CodeTasのモバイルアプリ開発サービス。iOS/Androidネイティブアプリ、Flutter/React Nativeなどのクロスプラットフォーム開発、アプリのリニューアル・機能追加、ストア申請・リリースまでトータルサポート。" />
+  <meta property="og:url" content="https://www.codetas.com/services/mobile-development.html" />
+  <meta property="og:image" content="https://www.codetas.com/ogp.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CodeTas" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="モバイルアプリ開発 | CodeTas" />
+  <meta name="twitter:description" content="CodeTasのモバイルアプリ開発サービス。iOS/Androidネイティブアプリ、Flutter/React Nativeなどのクロスプラットフォーム開発、アプリのリニューアル・機能追加、ストア申請・リリースまでトータルサポート。" />
+  <meta name="twitter:image" content="https://www.codetas.com/ogp.png" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .service-hero{padding-top:calc(70px + 80px);color:#fff;text-align:center}
+    .service-hero h1{font-size:clamp(36px,4vw,56px);font-weight:900;letter-spacing:-.035em;margin:0 0 20px;line-height:1.15}
+    .service-hero h1 em{background:linear-gradient(100deg,var(--blue),var(--cyan));background-clip:text;-webkit-background-clip:text;color:transparent;font-style:normal}
+    .service-hero .lead{max-width:620px;margin:0 auto 40px;color:var(--dark-muted);font-size:16px;line-height:2}
+    .service-nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:60px}
+    .service-nav a{padding:10px 22px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:var(--dark-muted);font:500 13px;transition:.2s}
+    .service-nav a:hover{border-color:var(--cyan);color:#fff}
+    .service-detail .section-lead{max-width:680px}
+    .pain-list{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-direction:column;gap:12px}
+    .pain-list li{display:flex;align-items:flex-start;gap:12px;color:var(--muted);font-size:15px;line-height:1.7}
+    .pain-list li::before{content:"→";color:var(--blue);font-weight:700;flex-shrink:0}
+    .approach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+    .approach-step{padding:28px 24px;border:1.5px solid var(--line);border-radius:14px;background:#fff}
+    .approach-step h4{margin:0 0 8px;font-size:18px}
+    .approach-step h4 small{display:block;color:var(--blue);font:400 11px var(--mono);letter-spacing:.08em;margin-bottom:4px}
+    .approach-step p{margin:0;color:var(--muted);font-size:14px;line-height:1.9}
+    @media(max-width:720px){.approach-grid{grid-template-columns:1fr}}
+    .service-cta {text-align:center;padding-block:80px;border-top:1px solid rgba(255,255,255,.08)}
+    .service-cta h2 {margin:0 0 16px;font-size:clamp(24px,2.6vw,36px)}
+    .service-cta p {color:var(--dark-muted);margin:0 0 32px;font-size:15px}
+    .service-section h2 {font-size:clamp(24px,2.8vw,36px);margin:0 0 20px;letter-spacing:-.025em}
+    .back-link {display:inline-flex;align-items:center;gap:8px;color:var(--dark-muted);font:400 12px var(--mono);margin-bottom:30px}
+    .back-link:hover{color:var(--cyan)}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+  <header class="site-header" data-header>
+    <div class="container nav-inner">
+      <a class="brand" href="../" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span></a>
+      <nav class="desktop-nav" aria-label="メインナビゲーション">
+        <a href="../index.html#services">サービス</a>
+        <a href="../index.html#works">実績</a>
+        <a href="../index.html#process">進め方</a>
+        <a href="../index.html#faq">FAQ</a>
+        <a href="../index.html#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="service-hero grid-dark">
+      <div class="container">
+        <a href="../index.html#services" class="back-link">← サービス一覧に戻る</a>
+        <h1>モバイルアプリ開発</h1>
+        <p class="lead">iOS・Androidのネイティブアプリからクロスプラットフォームまで。日常に溶け込む、快適なモバイル体験を設計・開発します。</p>
+        <div class="service-nav">
+          <a href="#pain">課題</a>
+          <a href="#approach">進め方</a>
+          <a href="../index.html#faq">FAQ</a>
+          <a href="../index.html#contact">相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="pain" class="light-section section-pad">
+      <div class="container service-section">
+        <div class="section-title">
+          <span>01</span>
+          <div>
+            <p>PAIN POINTS</p>
+            <h2>こんなお悩みはありませんか？</h2>
+          </div>
+        </div>
+        <ul class="pain-list">
+          <li>ユーザーに長く使ってもらえるアプリにしたい</li>
+          <li>iOSとAndroid、両方対応したいがコストを抑えたい</li>
+          <li>既存アプリのUIを刷新したい</li>
+          <li>ストアリリースの手続きが不安</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="approach" class="section-pad grid-dark" style="color:#fff">
+      <div class="container service-section">
+        <div class="section-title section-title--dark">
+          <span>02</span>
+          <div>
+            <p style="color:var(--cyan)">OUR APPROACH</p>
+            <h2>進め方</h2>
+          </div>
+        </div>
+        <p class="section-lead section-lead--dark">プロジェクトの規模やフェーズに合わせて、柔軟に進め方を調整します。</p>
+        <div class="approach-grid">
+          <div class="approach-step"><h4><small>STEP 1</small>UX設計・プロトタイピング</h4><p>ユーザーフローを設計し、画面遷移や操作感をプロトタイプで検証。ペルソナに合わせたUIを追求します。</p></div>
+          <div class="approach-step"><h4><small>STEP 2</small>開発</h4><p>Swift/SwiftUI、Kotlin、Flutter、React Nativeなど、プロジェクトに最適な技術を採用。API連携やプッシュ通知などの実装も対応します。</p></div>
+          <div class="approach-step"><h4><small>STEP 3</small>テスト・品質検証</h4><p>実機テスト・UIテスト・パフォーマンス測定を実施。クラッシュレポートの仕組みも組み込みます。</p></div>
+          <div class="approach-step"><h4><small>STEP 4</small>ストアリリース・運用</h4><p>App Store / Google Play の申請〜公開まで対応。リリース後のクラッシュ監視やアップデートもサポートします。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-cta grid-dark">
+      <div class="container">
+        <h2>まずは、話すことから。</h2>
+        <p>アイデア段階でも構いません。課題の整理からご一緒します。</p>
+        <a class="button button--large" href="../index.html#contact"><span>開発について相談する</span><span>→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a class="brand" href="../" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span><small>© CodeTas</small></a>
+      <p>Web・モバイルアプリ・AIツール開発</p>
+    </div>
+  </footer>
+</body>
+</html>
