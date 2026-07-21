@@ -19,7 +19,7 @@ const translations = {
   heroT1:"A development partner that ",heroT2:"moves your business forward",heroT3:".",
   heroSub:"CodeTas is a development partner for web services, mobile apps, business systems, and AI tools — from planning and design through development and operation. We're happy to talk even before requirements are finalized.",heroCta1:"Talk to us",heroCta2:"See what we do",
   term1:"Strategy & scoping",term2:"UI/UX design",term3:"Build & verify",term4:"Operating & growing…",
-  buildTitle:"From code to something real.",appNav:"Today　 Projects　 Reports",appCta:"+ New task",appListTitle:"Today’s tasks",appTask1:"Review homepage design",appTask2:"Implement login flow",appTask3:"Write release notes",appStatTitle:"Progress today",appStatDone:"18/22 tasks done",appSync:"synced",
+  buildTitle:"From code to something real.",buildStep1:"Coding",buildStep2:"Test",buildStep3:"Build",buildStep4:"Release",buildStep5:"App ready",testRunning:"Checking quality",testPassed:"TESTS PASSED",testTime:"Run time",buildOptimizing:"Optimizing",buildReady:"Production bundle ready",releaseTitle:"Released to the world.",releaseLive:"Production is live",buildScrollHint:"Scroll to move development forward ↓",appNav:"Today　 Projects　 Reports",appCta:"+ New task",appListTitle:"Today’s tasks",appTask1:"Review homepage design",appTask2:"Implement login flow",appTask3:"Write release notes",appStatTitle:"Progress today",appStatDone:"18/22 tasks done",appSync:"synced",
   servicesTitle:"Planning to operation, in one continuous line.",servicesSub:"We combine the expertise your business phase requires.",
   svc1Desc:"From internal systems to SaaS and e-commerce — usable, scalable web products. We handle MVP development for new services, feature additions and improvements for existing services, technology selection, and cloud architecture.",svc1I1:"Frontend & backend",svc1I2:"Cloud infrastructure & API design",svc1I3:"Performance optimization",
   svc2Title:"Mobile App Development",svc2Desc:"iOS and Android. Comfortable app experiences that fit into daily life. From new app development to feature additions and renewals.",svc2I1:"iOS & Android apps",svc2I2:"Cross-platform",svc2I3:"Store submission & release support",
@@ -62,13 +62,42 @@ const build = document.querySelector("[data-build]");
 const buildBar = document.querySelector("[data-build-bar]");
 const buildPercent = document.querySelector("[data-build-percent]");
 const buildStatus = document.querySelector("[data-build-status]");
-const codeLayer = document.querySelector(".code-layer");
-const appPreview = document.querySelector(".app-preview");
+const buildPanels = [...document.querySelectorAll("[data-build-panel]")];
+const buildSteps = [...document.querySelectorAll("[data-build-step]")];
+const codeLines = [...document.querySelectorAll(".code-line")];
 const liveBadge = document.querySelector("[data-live]");
+const buildTitle = document.querySelector("[data-build-title]");
+const buildCount = document.querySelector("[data-build-count]");
+const testTotal = document.querySelector("[data-test-total]");
+const testPercent = document.querySelector("[data-test-percent]");
+const testGauge = document.querySelector("[data-test-gauge]");
+const testTime = document.querySelector("[data-test-time]");
+const testItems = [...document.querySelectorAll("[data-test-item]")];
+const bundleFiles = [...document.querySelectorAll("[data-bundle-file]")];
+const bundleCube = document.querySelector("[data-bundle-cube]");
+const bundleResult = document.querySelector("[data-bundle-result]");
+const releaseOrbit = document.querySelector("[data-release-orbit]");
+const releaseNodes = [...document.querySelectorAll("[data-release-node]")];
+const releaseLines = [...document.querySelectorAll("[data-release-line]")];
+const releaseLive = document.querySelector("[data-release-live]");
 let buildProgress = 0;
 
-const statusJa = ["コンパイル中…", "UIを構築中…", "機能を実装中…", "デプロイ完了 — 本番稼働中"];
-const statusEn = ["Compiling…", "Building UI…", "Shipping features…", "Deployed — running in production"];
+const buildCopy = {
+  ja: [
+    ["コードを書いています…", "main.tsx — coding"],
+    ["24件のテストを実行しています…", "tests — quality check"],
+    ["本番用にビルドしています…", "build — production"],
+    ["クラウドへリリースしています…", "deploy — tokyo"],
+    ["完成 — アプリが公開されました", "taskflow.app"]
+  ],
+  en: [
+    ["Writing the product…", "main.tsx — coding"],
+    ["Running 24 tests…", "tests — quality check"],
+    ["Building for production…", "build — production"],
+    ["Releasing to the cloud…", "deploy — tokyo"],
+    ["Complete — your app is live", "taskflow.app"]
+  ]
+};
 
 function updateScroll() {
   header?.classList.toggle("is-scrolled", window.scrollY > 10);
@@ -79,15 +108,57 @@ function updateScroll() {
   const percent = Math.round(buildProgress * 100);
   buildBar.style.width = `${percent}%`;
   buildPercent.textContent = `${percent}%`;
-  const statuses = document.documentElement.lang === "en" ? statusEn : statusJa;
-  const stage = buildProgress < .25 ? 0 : buildProgress < .5 ? 1 : buildProgress < .78 ? 2 : 3;
-  buildStatus.textContent = statuses[stage];
-  const previewProgress = Math.max(0, Math.min(1, (buildProgress - .32) / .42));
-  codeLayer.style.opacity = String(1 - previewProgress);
-  codeLayer.style.transform = `translateY(${-10 * previewProgress}px)`;
-  appPreview.style.opacity = String(previewProgress);
-  appPreview.style.transform = `translateY(${14 * (1 - previewProgress)}px) scale(${.97 + .03 * previewProgress})`;
-  liveBadge.style.display = buildProgress > .76 ? "block" : "none";
+  const stage = Math.min(4, Math.floor(buildProgress * 5));
+  const stageProgress = Math.min(1, Math.max(0, buildProgress * 5 - stage));
+  const copy = buildCopy[document.documentElement.lang === "en" ? "en" : "ja"][stage];
+  buildStatus.textContent = copy[0];
+  buildTitle.textContent = copy[1];
+  buildCount.textContent = `${stage + 1} / 5`;
+  buildPanels.forEach((panel, index) => panel.classList.toggle("is-current", index === stage));
+  buildSteps.forEach((step, index) => {
+    step.classList.toggle("is-active", index === stage);
+    step.classList.toggle("is-complete", index < stage);
+  });
+
+  const codeProgress = Math.min(1, buildProgress / .19);
+  const visibleLines = Math.max(1, Math.ceil(codeProgress * codeLines.length));
+  codeLines.forEach((line, index) => {
+    line.classList.toggle("is-typed", index < visibleLines);
+    line.classList.toggle("is-typing", index === visibleLines - 1 && codeProgress < 1);
+  });
+
+  const testValue = stage < 1 ? 0 : stage > 1 ? 1 : stageProgress;
+  const passedTests = Math.min(24, Math.floor(testValue * 25));
+  const testPercentage = Math.round(testValue * 100);
+  testTotal.textContent = String(passedTests);
+  testPercent.textContent = `${testPercentage}%`;
+  testGauge.style.setProperty("--test-progress", `${testPercentage}%`);
+  testTime.textContent = `${(testValue * 1.84).toFixed(2)}s`;
+  testItems.forEach((item, index) => item.classList.toggle("is-done", testValue >= (index + 1) / testItems.length));
+
+  const bundleValue = stage < 2 ? 0 : stage > 2 ? 1 : stageProgress;
+  bundleFiles.forEach((file, index) => {
+    const fileProgress = Math.min(1, Math.max(0, (bundleValue - index * .14) / .58));
+    file.style.transform = `scaleX(${fileProgress})`;
+  });
+  const cubeScale = .78 + bundleValue * .22;
+  bundleCube.style.transform = `rotate(${20 + bundleValue * 10}deg) skew(-7deg) scale(${cubeScale})`;
+  bundleCube.style.opacity = String(.25 + bundleValue * .75);
+  bundleResult.style.opacity = String(.2 + Math.max(0, (bundleValue - .72) / .28) * .8);
+  bundleResult.style.transform = `translateY(${Math.max(0, 1 - bundleValue) * 5}px)`;
+
+  const releaseValue = stage < 3 ? 0 : stage > 3 ? 1 : stageProgress;
+  releaseOrbit.style.transform = `translateY(${-releaseValue * 7}px) rotate(${releaseValue * 360}deg)`;
+  releaseOrbit.style.setProperty("--release-counter", `${releaseValue * -360}deg`);
+  releaseNodes.forEach((node, index) => node.classList.toggle("is-done", releaseValue >= .08 + index * .34));
+  releaseLines.forEach((line, index) => {
+    const lineProgress = Math.min(1, Math.max(0, (releaseValue - (.14 + index * .34)) / .2));
+    line.style.transform = `scaleX(${lineProgress})`;
+  });
+  const liveProgress = Math.min(1, Math.max(0, (releaseValue - .76) / .24));
+  releaseLive.style.opacity = String(.15 + liveProgress * .85);
+  releaseLive.style.transform = `translateY(${(1 - liveProgress) * 5}px)`;
+  liveBadge.style.display = stage === 4 ? "block" : "none";
 }
 
 let ticking = false;

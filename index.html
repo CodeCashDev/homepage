@@ -137,19 +137,50 @@
           <div class="build-glow"></div>
           <div class="container build-inner">
             <div class="center-heading"><p>SCROLL TO BUILD</p><h2 data-i18n="buildTitle">コードが、かたちになるまで。</h2></div>
+            <ol class="build-steps" aria-label="開発工程">
+              <li class="is-active" data-build-step><i>01</i><span data-i18n="buildStep1">コーディング</span><b></b></li>
+              <li data-build-step><i>02</i><span data-i18n="buildStep2">テスト</span><b></b></li>
+              <li data-build-step><i>03</i><span data-i18n="buildStep3">ビルド</span><b></b></li>
+              <li data-build-step><i>04</i><span data-i18n="buildStep4">リリース</span><b></b></li>
+              <li data-build-step><i>05</i><span data-i18n="buildStep5">アプリ完成</span></li>
+            </ol>
             <div class="build-window">
-              <div class="window-bar"><span class="traffic"><i></i><i></i><i></i></span><span data-build-title>main.tsx — CodeTas</span><b data-live>● LIVE</b></div>
+              <div class="window-bar"><span class="traffic"><i></i><i></i><i></i></span><span data-build-title>main.tsx — coding</span><em data-build-count>1 / 5</em><b data-live>● LIVE</b></div>
               <div class="build-stage">
-                <pre class="code-layer" aria-hidden="true"><code><span class="kw">import</span> { CodeTas } <span class="kw">from</span> <span class="str">'@codetas/core'</span>
+                <pre class="build-panel code-layer is-current" data-build-panel aria-hidden="true"><code><span class="code-line"><span class="kw">import</span> { CodeTas } <span class="kw">from</span> <span class="str">'@codetas/core'</span></span>
+<span class="code-line"><span class="kw">import</span> { createWorkspace } <span class="kw">from</span> <span class="str">'@codetas/ui'</span></span>
+<span class="code-line"> </span>
+<span class="code-line"><span class="kw">const</span> app = CodeTas.<span class="fn">createApp</span>({</span>
+<span class="code-line">  name: <span class="str">'TaskFlow'</span>,</span>
+<span class="code-line">  design: <span class="str">'simple &amp; delightful'</span>,</span>
+<span class="code-line">  features: [</span>
+<span class="code-line">    <span class="str">'tasks'</span>, <span class="str">'reports'</span>, <span class="str">'sync'</span>,</span>
+<span class="code-line">  ],</span>
+<span class="code-line">})</span>
+<span class="code-line"> </span>
+<span class="code-line">app.<span class="fn">use</span>(createWorkspace())</span>
+<span class="code-line"><span class="kw">export default</span> app.<span class="fn">ready</span>() <span class="comment">// ship it →</span></span></code></pre>
 
-<span class="kw">const</span> app = <span class="kw">new</span> CodeTas.<span class="fn">App</span>({
-  design: <span class="str">'ui/ux'</span>,
-  stack: <span class="str">['react', 'node', 'aws']</span>,
-  quality: <span class="str">'production-ready'</span>,
-})
+                <div class="build-panel test-panel" data-build-panel>
+                  <div class="panel-head"><span>TEST RUNNER</span><b><i></i><span>CHECKING QUALITY</span></b></div>
+                  <div class="test-summary"><strong><span data-test-total>0</span><small>TESTS PASSED</small></strong><i data-test-gauge><b data-test-percent>0%</b></i><p><span>RUN TIME</span><b data-test-time>0.00s</b></p></div>
+                  <div class="test-list"><p data-test-item><i>✓</i><span>Authentication flow</span><b>320ms</b></p><p data-test-item><i>✓</i><span>Task creation &amp; sync</span><b>184ms</b></p><p data-test-item><i>✓</i><span>Responsive UI</span><b>96ms</b></p><p data-test-item><i>✓</i><span>Accessibility</span><b>72ms</b></p></div>
+                </div>
 
-<span class="kw">await</span> app.<span class="fn">deploy</span>() <span class="comment">// → live</span></code></pre>
-                <div class="app-preview">
+                <div class="build-panel bundle-panel" data-build-panel>
+                  <div class="panel-head"><span>PRODUCTION BUILD</span><b><i></i><span>OPTIMIZING ASSETS</span></b></div>
+                  <div class="bundle-main"><div class="bundle-cube" data-bundle-cube><i></i><i></i><i></i><b>APP</b></div><div class="bundle-files"><p><span>index.html</span><b>1.2 kB</b><i><em data-bundle-file style="--size:34%"></em></i></p><p><span>app.js</span><b>84.6 kB</b><i><em data-bundle-file style="--size:82%"></em></i></p><p><span>styles.css</span><b>12.4 kB</b><i><em data-bundle-file style="--size:48%"></em></i></p><p><span>assets</span><b>128 kB</b><i><em data-bundle-file style="--size:100%"></em></i></p></div></div>
+                  <div class="bundle-result" data-bundle-result>✓ <span>PRODUCTION BUNDLE READY</span><b>226.2 kB · gzip 71.4 kB</b></div>
+                </div>
+
+                <div class="build-panel release-panel" data-build-panel>
+                  <div class="release-orbit" data-release-orbit><i></i><i></i><i></i><div>↑</div></div>
+                  <p>DEPLOYMENT / TOKYO</p><h3>SHIP IT TO THE WORLD.</h3>
+                  <div class="release-route"><span data-release-node><i>✓</i> Git</span><b data-release-line></b><span data-release-node><i>✓</i> Cloud</span><b data-release-line></b><span data-release-node><i>✓</i> Edge</span></div>
+                  <small data-release-live><i></i><span>PRODUCTION IS LIVE</span> · taskflow.app</small>
+                </div>
+
+                <div class="build-panel app-preview" data-build-panel>
                   <div class="app-nav"><i>✓</i><b>TaskFlow</b><span></span><small data-i18n="appNav">今日　 プロジェクト　 レポート</small><button data-i18n="appCta">+ 新規タスク</button></div>
                   <div class="app-main"><div class="tasks"><b data-i18n="appListTitle">今日のタスク</b><p class="done"><i>✓</i><span data-i18n="appTask1">トップページのデザイン確認</span><em>DESIGN</em></p><p class="done"><i>✓</i><span data-i18n="appTask2">ログイン機能の実装</span><em>DEV</em></p><p><i></i><span data-i18n="appTask3">リリースノートを書く</span><em>TODAY</em></p></div><div class="stat"><small data-i18n="appStatTitle">今日の進捗</small><strong>82<em>%</em></strong><i><b></b></i><small data-i18n="appStatDone">18/22 タスク完了</small></div></div>
                   <div class="project-row"><p><b>Web Renewal</b><i><span style="width:80%"></span></i><small>80%</small></p><p><b>Mobile App</b><i><span style="width:45%"></span></i><small>45%</small></p><p><b>Marketing</b><i><span style="width:60%"></span></i><small>60%</small></p></div>
@@ -157,7 +188,7 @@
                 </div>
               </div>
             </div>
-            <div class="build-progress"><p><span data-build-status>コンパイル中…</span><b data-build-percent>0%</b></p><i><span data-build-bar></span></i></div>
+            <div class="build-progress"><p><span data-build-status>コードを書いています…</span><b data-build-percent>0%</b></p><i><span data-build-bar></span></i><small data-i18n="buildScrollHint">スクロールして開発を進める ↓</small></div>
           </div>
         </div>
       </section>
