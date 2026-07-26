@@ -16,7 +16,7 @@ mobileNav?.querySelectorAll("a").forEach((link) => link.addEventListener("click"
 
 const translations = {
   navServices:"Services",navWorks:"Works",navProcess:"Process",navContact:"Contact",
-  heroT1:"A development partner that ",heroT2:"moves your business forward",heroT3:".",
+  heroT1:"A development partner that ",heroT2:"moves your business forward",heroT3:".",heroT4:"",
   heroSub:"CodeTas is a development partner for web services, mobile apps, business systems, and AI tools — from planning and design through development and operation. We're happy to talk even before requirements are finalized.",heroCta1:"Talk to us",heroCta2:"See what we do",
   term1:"Strategy & scoping",term2:"UI/UX design",term3:"Build & verify",term4:"Operating & growing…",
   buildTitle:"From code to something real.",buildStep1:"Coding",buildStep2:"Test",buildStep3:"Build",buildStep4:"Release",buildStep5:"App ready",testRunning:"Checking quality",testPassed:"TESTS PASSED",testTime:"Run time",buildOptimizing:"Optimizing",buildReady:"Production bundle ready",releaseTitle:"Released to the world.",releaseLive:"Production is live",buildScrollHint:"Scroll to move development forward ↓",appNav:"Today　 Projects　 Reports",appCta:"+ New task",appListTitle:"Today’s tasks",appTask1:"Review homepage design",appTask2:"Implement login flow",appTask3:"Write release notes",appStatTitle:"Progress today",appStatDone:"18/22 tasks done",appSync:"synced",

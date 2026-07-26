@@ -137,3 +137,26 @@
 @media(max-width:720px){.build-story{height:550vh}.build-inner{width:min(100% - 28px,580px)}.build-inner .center-heading{margin-bottom:16px}.build-steps{margin-bottom:12px}.build-steps li{gap:0}.build-steps li span{display:none}.build-steps li i{width:24px;height:24px}.build-steps li b{margin-inline:5px}.build-stage{height:330px}.code-layer{--code-size:10px;padding:20px 18px}.panel-head{padding-inline:16px}.test-panel,.bundle-panel{padding-inline:16px}.test-panel .panel-head,.bundle-panel .panel-head{margin-inline:-16px}.test-summary{gap:14px}.test-summary strong{font-size:31px}.test-summary>i{width:52px;height:52px}.test-summary>p{display:none}.test-list{grid-template-columns:1fr;gap:6px;padding-top:12px}.test-list p{padding:7px 9px}.test-list p:nth-child(4){display:none}.bundle-main{height:225px;grid-template-columns:100px 1fr;gap:16px}.bundle-cube{width:64px;height:64px}.bundle-files{gap:10px}.bundle-result b{display:none}.release-route>b{width:30px}.app-preview{font-size:inherit}.build-progress{margin-top:18px}}
 @media(max-width:430px){.build-inner .center-heading h2{font-size:23px}.build-inner .center-heading p{font-size:9px}.build-stage{height:300px}.code-layer{--code-size:9px;padding:16px 15px}.panel-head{height:40px}.test-summary{height:92px}.test-list p{font-size:9px}.bundle-main{height:200px}.release-route>b{width:18px;margin-inline:6px}.release-panel h3{font-size:21px;margin-bottom:18px}.release-panel>small{font-size:8px}.build-progress{margin-top:14px}.build-progress>small{display:none}}
 @media(prefers-reduced-motion:reduce){.code-line,.build-panel,.build-steps li,.build-steps li i,.build-steps li b::after{transition:none}.bundle-files p em,.release-orbit{animation:none}}
+
+/* ---- 日本語の折り返し制御 ------------------------------------------------ */
+/* 文節単位で折り返す（word-break:auto-phrase は日本語にのみ作用し、
+   未対応ブラウザ・英語表示時は normal にフォールバックする） */
+h1,h2,h3,.hero-lead,.section-lead,.works-hint,.blueprint-copy>p,.blueprint-copy li,
+.work-window>footer p,.pipeline article p,.chat .question,.chat .answer p,
+.contact p:not(.kicker),.mail-window>div:not(.window-bar),
+.lead,.pain-list li,.approach-step p{word-break:auto-phrase}
+/* 見出しは行長を均等に、本文は末尾1文字だけの行を避ける */
+h1,h2,h3{text-wrap:balance}
+.hero-lead,.section-lead,.blueprint-copy>p,.work-window>footer p,
+.pipeline article p,.chat .answer p,.contact p:not(.kicker),
+.lead,.approach-step p{text-wrap:pretty}
+/* メールアドレスなど長い英字トークンのはみ出し防止 */
+.mail-window>p a,.contact-action small{overflow-wrap:break-word}
+
+/* ヒーロー見出しを「事業を前に進める、／開発パートナー。」の2行に固定 */
+.hero h1 .h1-row{display:block}
+.hero h1 .h1-row:empty{display:none}
+@media(max-width:720px){
+  .hero h1{font-size:clamp(30px,9.2vw,52px)}
+  .hero h1 em{display:inline}
+}
