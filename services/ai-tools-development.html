@@ -42,6 +42,10 @@
     .approach-step h4 small{display:block;color:var(--blue);font:400 11px var(--mono);letter-spacing:.08em;margin-bottom:4px}
     .approach-step p{margin:0;color:var(--muted);font-size:14px;line-height:1.9}
     @media(max-width:720px){.approach-grid{grid-template-columns:1fr}}
+    /* スマホ幅では見出しを可変にする（36px 固定だと「デスクトップアプリ開発」が
+       1行に収まらず「デスクトップアプリ / 開発」のように割れるため）。
+       480px で 36px に収束し、それ以上の幅は上の clamp のまま変えない */
+    @media(max-width:480px){.service-hero h1{font-size:clamp(26px,8.2vw,36px)}}
     .service-cta {text-align:center;padding-block:80px;border-top:1px solid rgba(255,255,255,.08)}
     .service-cta h2 {margin:0 0 16px;font-size:clamp(24px,2.6vw,36px)}
     .service-cta p {color:var(--dark-muted);margin:0 0 32px;font-size:15px}
@@ -69,7 +73,7 @@
     <section class="service-hero grid-dark">
       <div class="container">
         <a href="../index.html#services" class="back-link">← サービス一覧に戻る</a>
-        <h1>AIツール・デスクトップアプリ開発</h1>
+        <h1><span class="phrase">AIツール・</span><span class="phrase">デスクトップアプリ開発</span></h1>
         <p class="lead">macOSアプリやAIを活用したツールの開発。自社プロダクト「HeyLog」で培った知見を活かし、業務効率化や新たな価値創造を支援します。</p>
         <div class="service-nav">
           <a href="#pain">課題</a>
@@ -86,7 +90,7 @@
           <span>01</span>
           <div>
             <p>PAIN POINTS</p>
-            <h2>こんなお悩みはありませんか？</h2>
+            <h2><span class="phrase">こんなお悩みは</span><span class="phrase">ありませんか？</span></h2>
           </div>
         </div>
         <ul class="pain-list">
@@ -119,7 +123,7 @@
 
     <section class="service-cta grid-dark">
       <div class="container">
-        <h2>まずは、話すことから。</h2>
+        <h2><span class="phrase">まずは、</span><span class="phrase">話すことから。</span></h2>
         <p>アイデア段階でも構いません。課題の整理からご一緒します。</p>
         <a class="button button--large" href="../index.html#contact"><span>開発について相談する</span><span>→</span></a>
       </div>
