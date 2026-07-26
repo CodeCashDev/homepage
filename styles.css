@@ -145,8 +145,13 @@ h1,h2,h3,.hero-lead,.section-lead,.works-hint,.blueprint-copy>p,.blueprint-copy 
 .work-window>footer p,.pipeline article p,.chat .question,.chat .answer p,
 .contact p:not(.kicker),.mail-window>div:not(.window-bar),
 .lead,.pain-list li,.approach-step p{word-break:auto-phrase}
-/* 見出しは行長を均等に、本文は末尾1文字だけの行を避ける */
-h1,h2,h3{text-wrap:balance}
+/* text-wrap:balance は「行長の均等化」だけを目的とし日本語の文節境界を無視するため、
+   auto-phrase 未対応の Safari では「デスクトップアプ / リ・AIツール開発」のような
+   分断を生む。英語表示時のみ有効にする。
+   日本語見出しの折り返し位置は .phrase（文節を inline-block で塊にする）で制御する。 */
+:lang(en) h1,:lang(en) h2,:lang(en) h3{text-wrap:balance}
+.phrase{display:inline-block}
+/* 本文は末尾1文字だけの行を避ける */
 .hero-lead,.section-lead,.blueprint-copy>p,.work-window>footer p,
 .pipeline article p,.chat .answer p,.contact p:not(.kicker),
 .lead,.approach-step p{text-wrap:pretty}
