@@ -2,10 +2,16 @@ const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const mobileNav = document.querySelector("[data-mobile-nav]");
 
+function menuLabel(willBeOpen) {
+  const en = document.documentElement.lang === "en";
+  if (willBeOpen) return en ? "Close menu" : "メニューを閉じる";
+  return en ? "Open menu" : "メニューを開く";
+}
+
 menuButton?.addEventListener("click", () => {
   const open = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute("aria-expanded", String(!open));
-  menuButton.setAttribute("aria-label", open ? "メニューを開く" : "メニューを閉じる");
+  menuButton.setAttribute("aria-label", menuLabel(!open));
   mobileNav?.classList.toggle("is-open", !open);
 });
 
@@ -15,13 +21,15 @@ mobileNav?.querySelectorAll("a").forEach((link) => link.addEventListener("click"
 }));
 
 const translations = {
+  skipLink:"Skip to main content",
   navServices:"Services",navWorks:"Works",navProcess:"Process",navContact:"Contact",
   heroT1:"A development partner that ",heroT2:"moves your business forward",heroT3:".",heroT4:"",
   heroSub:"CodeTas is a development partner for web services, mobile apps, business systems, and AI tools — from planning and design through development and operation. We're happy to talk even before requirements are finalized.",heroCta1:"Talk to us",heroCta2:"See what we do",
   term1:"Strategy & scoping",term2:"UI/UX design",term3:"Build & verify",term4:"Operating & growing…",
-  buildTitle:"From code to something real.",buildStep1:"Coding",buildStep2:"Test",buildStep3:"Build",buildStep4:"Release",buildStep5:"App ready",testRunning:"Checking quality",testPassed:"TESTS PASSED",testTime:"Run time",buildOptimizing:"Optimizing",buildReady:"Production bundle ready",releaseTitle:"Released to the world.",releaseLive:"Production is live",buildScrollHint:"Scroll to move development forward ↓",appNav:"Today　 Projects　 Reports",appCta:"+ New task",appListTitle:"Today’s tasks",appTask1:"Review homepage design",appTask2:"Implement login flow",appTask3:"Write release notes",appStatTitle:"Progress today",appStatDone:"18/22 tasks done",appSync:"synced",
+  buildTitle:"From code to something real.",buildStep1:"Coding",buildStep2:"Test",buildStep3:"Build",buildStep4:"Release",buildStep5:"App ready",testRunning:"Checking quality",testPassed:"TESTS PASSED",testTime:"Run time",buildOptimizing:"Optimizing",buildReady:"Production bundle ready",releaseTitle:"Released to the world.",releaseLive:"Production is live",buildScrollHint:"Scroll to move development forward ↓",appNav:"Today  Projects  Reports",appCta:"+ New task",appListTitle:"Today’s tasks",appTask1:"Review homepage design",appTask2:"Implement login flow",appTask3:"Write release notes",appStatTitle:"Progress today",appStatDone:"18/22 tasks done",appSync:"synced",
   servicesTitle:"Planning to operation, in one continuous line.",servicesSub:"We combine the expertise your business phase requires.",
-  svc1Desc:"From internal systems to SaaS and e-commerce — usable, scalable web products. We handle MVP development for new services, feature additions and improvements for existing services, technology selection, and cloud architecture.",svc1I1:"Frontend & backend",svc1I2:"Cloud infrastructure & API design",svc1I3:"Performance optimization",
+  serviceDetail:"View details →",
+  svc1Title:"Web App Development",svc1Desc:"From internal systems to SaaS and e-commerce — usable, scalable web products. We handle MVP development for new services, feature additions and improvements for existing services, technology selection, and cloud architecture.",svc1I1:"Frontend & backend",svc1I2:"Cloud infrastructure & API design",svc1I3:"Performance optimization",
   svc2Title:"Mobile App Development",svc2Desc:"iOS and Android. Comfortable app experiences that fit into daily life. From new app development to feature additions and renewals.",svc2I1:"iOS & Android apps",svc2I2:"Cross-platform",svc2I3:"Store submission & release support",
   svc3Title:"Desktop App & AI Tool Development",svc3Desc:"macOS apps and AI-powered tools, built with know-how from our own products. We provide end-to-end support including AI integration, external API integration, and post-launch operations.",svc3I1:"macOS desktop apps",svc3I2:"AI integration, text & voice input",svc3I3:"API integrations such as Obsidian and Notion",aiPrompt:"Summarize the API design we just agreed on",exportTo:"Export to",saved:"Saved to local history",
   worksTitle:"Our work",worksSub:"A selection of products we have built and operate.",worksHint:"Click a window to bring it to the front",work1Title:"BebiReci",work1Desc:"A recipe-sharing app for babies and toddlers, searchable by ingredient, age, and excluded foods.",work2Title:"4komanikki",work2Desc:"A diary app that gently turns your written memories into four-panel comics with AI.",work3Title:"HeyLog — our own product",work3Desc:"A macOS app for asking AI by text or voice and saving answers to your favorite apps.",visitSite:"Visit website",
@@ -40,6 +48,7 @@ function setLanguage(lang) {
     if (value !== undefined) el.innerHTML = value;
   });
   document.querySelectorAll("[data-lang]").forEach((button) => button.classList.toggle("is-active", button.dataset.lang === lang));
+  menuButton?.setAttribute("aria-label", menuLabel(menuButton.getAttribute("aria-expanded") === "true"));
   localStorage.setItem("codetas-lang", lang);
 }
 
