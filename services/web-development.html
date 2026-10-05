@@ -32,36 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    .service-hero{padding-top:calc(70px + 80px);color:#fff;text-align:center}
-    .service-hero h1{font-size:clamp(36px,4vw,56px);font-weight:900;letter-spacing:-.035em;margin:0 0 20px;line-height:1.15}
-    .service-hero h1 em{background:linear-gradient(100deg,var(--blue),var(--cyan));background-clip:text;-webkit-background-clip:text;color:transparent;font-style:normal}
-    .service-hero .lead{max-width:620px;margin:0 auto 40px;color:var(--dark-muted);font-size:16px;line-height:2}
-    .service-nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:60px}
-    .service-nav a{padding:10px 22px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:var(--dark-muted);font:500 13px;transition:.2s}
-    .service-nav a:hover{border-color:var(--cyan);color:#fff}
-    .service-detail .section-lead{max-width:680px}
-    .pain-list{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-direction:column;gap:12px}
-    .pain-list li{display:flex;align-items:flex-start;gap:12px;color:var(--muted);font-size:15px;line-height:1.7}
-    .pain-list li::before{content:"→";color:var(--blue);font-weight:700;flex-shrink:0}
-    .approach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
-    .approach-step{padding:28px 24px;border:1.5px solid var(--line);border-radius:14px;background:#fff}
-    .approach-step h4{margin:0 0 8px;font-size:18px}
-    .approach-step h4 small{display:block;color:var(--blue);font:400 11px var(--mono);letter-spacing:.08em;margin-bottom:4px}
-    .approach-step p{margin:0;color:var(--muted);font-size:14px;line-height:1.9}
-    @media(max-width:720px){.approach-grid{grid-template-columns:1fr}}
-    /* スマホ幅では見出しを可変にする（36px 固定だと「デスクトップアプリ開発」が
-       1行に収まらず「デスクトップアプリ / 開発」のように割れるため）。
-       480px で 36px に収束し、それ以上の幅は上の clamp のまま変えない */
-    @media(max-width:480px){.service-hero h1{font-size:clamp(26px,8.2vw,36px)}}
-    .service-cta {text-align:center;padding-block:80px;border-top:1px solid rgba(255,255,255,.08)}
-    .service-cta h2 {margin:0 0 16px;font-size:clamp(24px,2.6vw,36px)}
-    .service-cta p {color:var(--dark-muted);margin:0 0 32px;font-size:15px}
-    .service-section h2 {font-size:clamp(24px,2.8vw,36px);margin:0 0 20px;letter-spacing:-.025em}
-    .back-link {display:inline-flex;align-items:center;gap:8px;color:var(--dark-muted);font:400 12px var(--mono);margin-bottom:30px}
-    .back-link:hover{color:var(--cyan)}
-  </style>
+  <link rel="stylesheet" href="../styles.css?v=20261005c" />
 </head>
 <body>
   <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
@@ -69,39 +40,35 @@
     <div class="container nav-inner">
       <a class="brand" href="../" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span></a>
       <nav class="desktop-nav" aria-label="メインナビゲーション">
-        <a href="../index.html#services">サービス</a>
-        <a href="../index.html#works">実績</a>
-        <a href="../index.html#process">進め方</a>
-        <a href="../index.html#faq">FAQ</a>
-        <a href="../index.html#contact">お問い合わせ</a>
+        <a href="../#services">サービス</a><a href="../#works">実績</a><a href="../#process">進め方</a><a href="../#faq">FAQ</a>
       </nav>
+      <div class="nav-actions"><a class="button button--small" href="../#contact"><span>お問い合わせ</span><span aria-hidden="true">→</span></a></div>
+      <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav" data-menu-button><span></span><span></span></button>
     </div>
+    <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="モバイルナビゲーション">
+      <a href="../#services">サービス</a><a href="../#works">実績</a><a href="../#process">進め方</a><a href="../#faq">FAQ</a><a href="../#contact">お問い合わせ</a>
+    </nav>
   </header>
 
   <main id="main" tabindex="-1">
-    <section class="service-hero grid-dark">
+    <section class="service-hero">
+      <div class="hero-glow"></div>
       <div class="container">
-        <a href="../index.html#services" class="back-link">← サービス一覧に戻る</a>
+        <a href="../#services" class="back-link">← サービス一覧に戻る</a>
         <h1>Webアプリ開発</h1>
         <p class="lead">業務システムからSaaS、EC、ランディングページまで。企画段階から伴走し、使いやすく拡張しやすいWebプロダクトを届けます。</p>
         <div class="service-nav">
           <a href="#pain">課題</a>
           <a href="#approach">進め方</a>
-          <a href="../index.html#faq">FAQ</a>
-          <a href="../index.html#contact">相談する</a>
+          <a href="../#faq">FAQ</a>
+          <a href="../#contact">相談する</a>
         </div>
       </div>
     </section>
 
-    <section id="pain" class="light-section section-pad">
-      <div class="container service-section">
-        <div class="section-title">
-          <span>01</span>
-          <div>
-            <p>PAIN POINTS</p>
-            <h2><span class="phrase">こんなお悩みは</span><span class="phrase">ありませんか？</span></h2>
-          </div>
-        </div>
+    <section id="pain" class="section section--paper">
+      <div class="container">
+        <div class="section-head"><div><p class="eyebrow">Pain points</p><h2><span class="phrase">こんなお悩みは</span><span class="phrase">ありませんか？</span></h2></div></div>
         <ul class="pain-list">
           <li>アイデアはあるけど、どうやって形にすればいいかわからない</li>
           <li>外注したが仕上がりがイメージと違った</li>
@@ -111,16 +78,9 @@
       </div>
     </section>
 
-    <section id="approach" class="section-pad grid-dark" style="color:#fff">
-      <div class="container service-section">
-        <div class="section-title section-title--dark">
-          <span>02</span>
-          <div>
-            <p style="color:var(--cyan)">OUR APPROACH</p>
-            <h2>進め方</h2>
-          </div>
-        </div>
-        <p class="section-lead section-lead--dark">プロジェクトの規模やフェーズに合わせて、柔軟に進め方を調整します。</p>
+    <section id="approach" class="section">
+      <div class="container">
+        <div class="section-head"><div><p class="eyebrow">Our approach</p><h2>進め方</h2></div><p class="section-lead">プロジェクトの規模やフェーズに合わせて、柔軟に進め方を調整します。</p></div>
         <div class="approach-grid">
           <div class="approach-step"><h4><small>STEP 1</small>ヒアリング・要件整理</h4><p>現状の課題や目指したい状態をヒアリングし、スコープを明確にします。仕様が固まっていない段階でも問題ありません。</p></div>
           <div class="approach-step"><h4><small>STEP 2</small>設計・技術選定</h4><p>拡張性・保守性・パフォーマンスを考慮してアーキテクチャを設計。フレームワークやクラウド構成も最適なものを提案します。</p></div>
@@ -130,20 +90,39 @@
       </div>
     </section>
 
-    <section class="service-cta grid-dark">
+    <section class="section section--paper">
+      <div class="container">
+        <div class="section-head"><div><p class="eyebrow">Other services</p><h2>その他のサービス</h2></div></div>
+        <div class="service-other"><a href="mobile-development.html">モバイルアプリ開発<span aria-hidden="true">→</span></a><a href="ai-tools-development.html">デスクトップ・AIツール開発<span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="service-cta">
+      <div class="contact-glow"></div>
       <div class="container">
         <h2><span class="phrase">まずは、</span><span class="phrase">話すことから。</span></h2>
         <p>アイデア段階でも構いません。課題の整理からご一緒します。</p>
-        <a class="button button--large" href="../index.html#contact"><span>開発について相談する</span><span>→</span></a>
+        <a class="button button--large" href="../#contact"><span>開発について相談する</span><span aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <a class="brand" href="../" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span><small>© CodeTas</small></a>
-      <p>Web・モバイルアプリ・AIツール開発</p>
+    <div class="container footer-grid">
+      <div><a class="brand" href="../" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span></a><p>Web・モバイルアプリ・AIツールの企画から運用までを支援する開発パートナー。</p></div>
+      <div><h4>SERVICES</h4><ul><li><a href="web-development.html">Webアプリ開発</a></li><li><a href="mobile-development.html">モバイルアプリ開発</a></li><li><a href="ai-tools-development.html">デスクトップ・AIツール開発</a></li></ul></div>
+      <div><h4>SITE</h4><ul><li><a href="../#works">実績</a></li><li><a href="../#process">進め方</a></li><li><a href="../#faq">FAQ</a></li></ul></div>
+      <div><h4>CONTACT</h4><ul><li><a href="mailto:support@codetas.com">support@codetas.com</a></li><li><a href="../#contact">お問い合わせ</a></li></ul></div>
     </div>
+    <div class="container footer-bottom"><p>© <span data-year></span> CodeTas. All rights reserved.</p><p>WEB &amp; MOBILE DEVELOPMENT PARTNER</p></div>
   </footer>
+  <script>
+    const menuButton=document.querySelector("[data-menu-button]"),mobileNav=document.querySelector("[data-mobile-nav]"),header=document.querySelector("[data-header]");
+    const setMenu=(open)=>{menuButton.setAttribute("aria-expanded",String(open));menuButton.setAttribute("aria-label",open?"メニューを閉じる":"メニューを開く");mobileNav.classList.toggle("is-open",open)};
+    menuButton.addEventListener("click",()=>setMenu(menuButton.getAttribute("aria-expanded")!=="true"));
+    mobileNav.querySelectorAll("a").forEach((a)=>a.addEventListener("click",()=>setMenu(false)));
+    addEventListener("scroll",()=>header.classList.toggle("is-scrolled",scrollY>10),{passive:true});
+    document.querySelectorAll("[data-year]").forEach((el)=>{el.textContent=new Date().getFullYear()});
+  </script>
 </body>
 </html>

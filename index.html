@@ -36,8 +36,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261005c" />
+    <script src="script.js?v=20261005c" defer></script>
 
     <!-- JSON-LD: Organization -->
     <script type="application/ld+json">
@@ -71,33 +71,15 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "まだアイデア段階ですが、相談できますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "もちろんです。課題の整理からご一緒しますので、まずは現状をお聞かせください。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "費用はどのように決まりますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "要件を整理したうえで、スコープに応じてお見積もりします。小さく始めるプランも可能です。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "開発期間はどのくらいかかりますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "規模によりますが、MVPなら2〜3ヶ月が目安です。"
-          }
-        }
+        {"@type": "Question","name": "まだアイデア段階ですが、相談できますか？","acceptedAnswer": {"@type": "Answer","text": "もちろんです。課題の整理からご一緒しますので、まずは現状をお聞かせください。"}},
+        {"@type": "Question","name": "費用はどのように決まりますか？","acceptedAnswer": {"@type": "Answer","text": "要件を整理したうえで、スコープに応じてお見積もりします。小さく始めるプランも可能です。"}},
+        {"@type": "Question","name": "開発期間はどのくらいかかりますか？","acceptedAnswer": {"@type": "Answer","text": "規模によりますが、MVPなら2〜3ヶ月が目安です。"}},
+        {"@type": "Question","name": "秘密保持契約（NDA）は結べますか？","acceptedAnswer": {"@type": "Answer","text": "はい、ご相談の段階から締結可能です。アイデアや事業情報も安心してお話しください。"}},
+        {"@type": "Question","name": "リリース後の運用や改善もお願いできますか？","acceptedAnswer": {"@type": "Answer","text": "はい。リリース後の保守・運用や機能改善も、開発を担当したチームが継続して支援します。"}}
       ]
     }
     </script>
+    <script>document.documentElement.classList.add("js")</script>
   </head>
   <body>
     <a href="#top" class="skip-link" data-i18n="skipLink">メインコンテンツへスキップ</a>
@@ -108,33 +90,43 @@
           <a href="#services" data-i18n="navServices">サービス</a><a href="#works" data-i18n="navWorks">実績</a><a href="#process" data-i18n="navProcess">進め方</a><a href="#faq">FAQ</a>
         </nav>
         <div class="nav-actions">
-          <div class="lang-switch" aria-label="言語選択"><button class="is-active" type="button" data-lang="ja">JA</button><button type="button" data-lang="en">EN</button></div>
-          <a class="button button--small" href="#contact"><span data-i18n="navContact">お問い合わせ</span><span>→</span></a>
+          <div class="lang-switch" role="group" aria-label="言語選択"><button class="is-active" type="button" data-lang="ja">JA</button><button type="button" data-lang="en">EN</button></div>
+          <a class="button button--small" href="#contact"><span data-i18n="navContact">お問い合わせ</span><span aria-hidden="true">→</span></a>
         </div>
-        <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" data-menu-button><span></span><span></span></button>
+        <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav" data-menu-button><span></span><span></span></button>
       </div>
-      <nav class="mobile-nav" data-mobile-nav aria-label="モバイルナビゲーション">
+      <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="モバイルナビゲーション">
         <a href="#services" data-i18n="navServices">サービス</a><a href="#works" data-i18n="navWorks">実績</a><a href="#process" data-i18n="navProcess">進め方</a><a href="#faq">FAQ</a><a href="#contact" data-i18n="navContact">お問い合わせ</a>
-        <div class="lang-switch"><button class="is-active" type="button" data-lang="ja">JA</button><button type="button" data-lang="en">EN</button></div>
+        <div class="lang-switch" role="group" aria-label="言語選択"><button class="is-active" type="button" data-lang="ja">JA</button><button type="button" data-lang="en">EN</button></div>
       </nav>
     </header>
 
     <main id="top" tabindex="-1">
-      <section class="hero grid-dark">
+      <section class="hero">
         <div class="hero-glow"></div>
         <div class="container hero-grid">
-          <div class="hero-copy reveal">
-            <p class="pill-label"><i></i> WEB &amp; MOBILE DEVELOPMENT</p>
+          <div class="hero-copy">
+            <p class="pill-label"><i></i> WEB · MOBILE · AI DEVELOPMENT</p>
             <h1><span class="h1-row"><span data-i18n="heroT1">事業を</span><em data-i18n="heroT2">前に進める</em><span data-i18n="heroT3">、</span></span><span class="h1-row" data-i18n="heroT4">開発パートナー。</span></h1>
-            <p class="hero-lead" data-i18n="heroSub">CodeTasは、Webサービス・モバイルアプリ・業務システム・AIツールの企画、設計、開発、運用を支援する開発パートナーです。要件が固まっていない段階からご相談ください。</p>
-            <div class="hero-actions"><a class="button button--large" href="#contact"><span data-i18n="heroCta1">開発について相談する</span><span>→</span></a><a class="button button--outline button--large" href="#services"><span data-i18n="heroCta2">できることを見る</span><span>↓</span></a></div>
+            <p class="hero-lead" data-i18n="heroSub">Webサービス・モバイルアプリ・業務システム・AIツールの企画から設計、開発、運用までを一貫して支援します。要件が固まっていない段階からご相談ください。</p>
+            <div class="hero-actions"><a class="button button--large" href="#contact"><span data-i18n="heroCta1">開発について相談する</span><span aria-hidden="true">→</span></a><a class="button button--ghost button--large" href="#works"><span data-i18n="heroCta2">実績を見る</span></a></div>
+            <ul class="hero-points"><li data-i18n="heroPoint1">アイデア段階から相談OK</li><li data-i18n="heroPoint2">NDA締結可</li><li data-i18n="heroPoint3">2営業日以内にご返信</li></ul>
           </div>
-          <div class="terminal reveal reveal--delay" aria-label="CodeTas terminal">
-            <div class="window-bar"><span class="traffic"><i></i><i></i><i></i></span><span>codetas — zsh</span></div>
-            <div class="terminal-body"><p><b>$</b> codetas init your-product</p><p>✔ <span data-i18n="term1">戦略・要件整理</span></p><p>✔ <span data-i18n="term2">UI/UX設計</span></p><p>✔ <span data-i18n="term3">実装・検証</span></p><p class="success">➜ <span data-i18n="term4">運用・グロースへ…</span></p><p><b>$</b> <i class="cursor"></i></p></div>
+          <div class="showcase" aria-hidden="true">
+            <div class="sc-browser">
+              <div class="sc-bar"><i></i><i></i><i></i><span>bebi-reci.jp</span></div>
+              <div class="sc-browser-body">
+                <div class="sc-brand"><i>べ</i>べびレシ</div>
+                <h4>きょうのおすすめ</h4><small>食材・月齢から探せるレシピ</small>
+                <div class="sc-cards"><div><b>🥕</b><span></span><span></span></div><div><b>🥦</b><span></span><span></span></div><div><b>🍓</b><span></span><span></span></div></div>
+                <div class="sc-tags"><em>5〜6ヶ月</em><em>7〜8ヶ月</em><em>9〜11ヶ月</em></div>
+              </div>
+            </div>
+            <div class="sc-phone"><div class="sc-phone-body"><small>4KOMA NIKKI</small><h4>４コマ日記</h4><div class="sc-koma"><span></span><span></span><span></span><span></span></div><p>今日の気持ちを、4コマ漫画に。</p></div></div>
+            <div class="sc-app"><header><span class="brand-mark">&lt;/&gt;</span>HeyLog<em>⌥ SPACE</em></header><p>会議の要点をまとめて<i></i></p><small>✓ Obsidian に保存しました</small></div>
           </div>
         </div>
-        <div class="marquee"><div>STRATEGY <i>◆</i> UI / UX DESIGN <i>◆</i> WEB DEVELOPMENT <i>◆</i> MOBILE APPS <i>◆</i> CLOUD &amp; API <i>◆</i> GROWTH &amp; OPERATION <i>◆</i> STRATEGY <i>◆</i> UI / UX DESIGN <i>◆</i> WEB DEVELOPMENT <i>◆</i> MOBILE APPS <i>◆</i></div></div>
+        <div class="cap-strip"><div class="container"><p>WHAT WE BUILD</p><ul><li data-i18n="cap1">Webアプリ・SaaS</li><li data-i18n="cap2">業務システム</li><li data-i18n="cap3">iOS / Android</li><li data-i18n="cap4">macOSアプリ</li><li data-i18n="cap5">AI連携・LLM活用</li><li data-i18n="cap6">クラウド・API設計</li></ul></div></div>
       </section>
 
       <section class="build-story grid-dark" data-build>
@@ -198,40 +190,111 @@
         </div>
       </section>
 
-      <section class="light-section" id="services">
-        <div class="container section-pad">
-          <div class="section-title reveal"><span>01</span><div><p>WHAT WE DO</p><h2 data-i18n="servicesTitle"><span class="phrase">企画から</span><span class="phrase">運用まで、</span><span class="phrase">ひと続きで。</span></h2></div></div>
-          <p class="section-lead reveal" data-i18n="servicesSub">事業のフェーズに合わせて、必要な専門性を組み合わせます。</p>
-          <div class="blueprints">
-            <article class="blueprint reveal"><header><b>SHEET 01 / 03</b><span>CODETAS ENGINEERING — WEB APPLICATION</span><small>REV 2.0</small></header><div class="blueprint-grid"><div class="blueprint-copy"><h3 data-i18n="svc1Title">Webアプリ開発</h3><p data-i18n="svc1Desc">業務システムからSaaS、ECまで。使いやすく、拡張しやすいWebプロダクトをつくります。新規サービスのMVP開発、既存サービスの機能追加・改善、技術選定やクラウド設計も対応します。</p><ul><li data-i18n="svc1I1">フロントエンド・バックエンド</li><li data-i18n="svc1I2">クラウドインフラ・API設計</li><li data-i18n="svc1I3">パフォーマンス改善</li></ul><a href="services/web-development.html" class="blueprint-detail-link" data-i18n="serviceDetail">詳しく見る →</a><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-WEB-001</b></div></div><div class="drawing drawing-web"><div class="browser-mock"><header><i></i><i></i><i></i><span></span></header><main><nav><i></i><b></b><span></span><em></em></nav><h4></h4><p></p><p></p><div><i></i><i></i><i></i></div></main></div></div></div></article>
-            <article class="blueprint reveal"><header><b>SHEET 02 / 03</b><span>CODETAS ENGINEERING — MOBILE APPLICATION</span><small>REV 2.0</small></header><div class="blueprint-grid blueprint-grid--reverse"><div class="drawing drawing-mobile"><div class="phone-mock"><i></i><h4></h4><p></p><b></b><div><span></span><span></span></div><nav><i></i><i></i><i></i><i></i></nav></div></div><div class="blueprint-copy"><h3 data-i18n="svc2Title">モバイルアプリ開発</h3><p data-i18n="svc2Desc">iOS・Androidに対応。日常に溶け込む、快適なアプリ体験を届けます。新規アプリの開発から既存アプリの機能追加・リニューアルまで対応します。</p><ul><li data-i18n="svc2I1">iOS・Androidアプリ</li><li data-i18n="svc2I2">クロスプラットフォーム</li><li data-i18n="svc2I3">ストア申請・リリース支援</li></ul><a href="services/mobile-development.html" class="blueprint-detail-link" data-i18n="serviceDetail">詳しく見る →</a><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-APP-002</b></div></div></div></article>
-            <article class="blueprint reveal"><header><b>SHEET 03 / 03</b><span>CODETAS ENGINEERING — DESKTOP / AI TOOLS</span><small>REV 2.0</small></header><div class="blueprint-grid"><div class="blueprint-copy"><h3 data-i18n="svc3Title"><span class="phrase">デスクトップアプリ・</span><span class="phrase">AIツール開発</span></h3><p data-i18n="svc3Desc">macOSアプリやAIを組み込んだツールを開発します。自社プロダクトで培った知見を活かし、AI機能や外部APIの組み込み、リリース後の運用支援までトータルにサポートします。</p><ul><li data-i18n="svc3I1">macOSデスクトップアプリ</li><li data-i18n="svc3I2">AI連携・テキスト / 音声入力</li><li data-i18n="svc3I3">Obsidian・NotionなどのAPI連携</li></ul><a href="services/ai-tools-development.html" class="blueprint-detail-link" data-i18n="serviceDetail">詳しく見る →</a><div class="drawing-label"><span>DRAWN</span><b>CODETAS</b><span>DWG NO</span><b>CT-DSK-003</b></div></div><div class="drawing drawing-ai"><div class="ai-mock"><header><span class="traffic"><i></i><i></i><i></i></span><b>HeyLog</b><em>⌥ SPACE</em></header><main><div class="prompt"><span data-i18n="aiPrompt">さっき決めたAPI設計の要点をまとめて</span><i>●</i></div><div class="answer"><b>AI</b><i></i><i></i><i></i></div><p><span data-i18n="exportTo">書き出し先</span> → <b>Obsidian</b><b>Notion</b></p><small>✓ <span data-i18n="saved">ローカル履歴に保存しました</span></small></main></div></div></div></article>
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head reveal"><div><p class="eyebrow">Why CodeTas</p><h2 data-i18n="whyTitle"><span class="phrase">つくって終わり、</span><span class="phrase">にしない開発を。</span></h2></div><p class="section-lead" data-i18n="whySub">事業の目的から逆算して、必要なものを必要な順番でつくります。</p></div>
+          <div class="strengths">
+            <article class="strength reveal"><b>01</b><h3 data-i18n="why1Title">企画から運用まで、ひとつのチームで</h3><p data-i18n="why1Desc">要件整理・設計・開発・リリース後の改善まで同じチームが担当します。窓口が分かれないので、意図が途中で失われません。</p></article>
+            <article class="strength reveal reveal--delay"><b>02</b><h3 data-i18n="why2Title">自社プロダクトで磨いた実践力</h3><p data-i18n="why2Desc">自ら企画・運営するWebサービスやmacOSアプリの知見を、受託開発にもそのまま活かします。</p></article>
+            <article class="strength reveal reveal--delay"><b>03</b><h3 data-i18n="why3Title">小さくつくり、早く出す</h3><p data-i18n="why3Desc">まずはMVPで仮説を検証し、短いサイクルで実装と確認を重ねます。無駄な開発費をかけずに前進できます。</p></article>
           </div>
         </div>
       </section>
 
-      <section class="works grid-dark" id="works">
-        <div class="container section-pad">
-          <div class="section-title section-title--dark reveal"><span>02</span><div><p>SELECTED WORKS</p><h2 data-i18n="worksTitle">これまでの仕事</h2></div></div>
-          <p class="section-lead section-lead--dark reveal" data-i18n="worksSub">開発・運営しているプロダクトをご紹介します。</p><p class="works-hint">› <span data-i18n="worksHint">ウィンドウをクリックすると前面に表示されます</span></p>
-          <div class="desktop-scene reveal"><header><b>CodeTas OS</b><span>Works</span><small>JST <i data-clock>10:24</i></small></header><div class="work-area">
-            <article class="work-window work-window--one" tabindex="0"><header><span class="traffic"><i></i><i></i><i></i></span><small>bebi-reci.jp</small><em>RECIPE COMMUNITY / WEB APP</em></header><div class="work-art work-art--bebireci"><div class="bebi-phone"><header><i>べ</i><b>べびレシ</b><span>⌕</span></header><main><small>乳幼児向けレシピ共有アプリ</small><h4>きょうのおすすめ</h4><div><article><i>🥕</i><span></span><span></span></article><article><i>🥣</i><span></span><span></span></article></div><p><b>5〜6ヶ月</b><b>7〜8ヶ月</b><b>9〜11ヶ月</b></p></main></div></div><footer><h3 data-i18n="work1Title">BebiReci（べびレシ）</h3><p data-i18n="work1Desc">食材・月齢・除外食材から探せる、乳幼児向けレシピ共有アプリです。</p><a class="work-link" href="https://bebi-reci.jp/" target="_blank" rel="noopener"><span data-i18n="visitSite">サイトを見る</span> ↗</a></footer></article>
-            <article class="work-window work-window--two" tabindex="0"><header><span class="traffic"><i></i><i></i><i></i></span><small>4komanikki.jp</small><em>AI DIARY / WEB APP</em></header><div class="work-art work-art--komanikki"><div class="koma-cover"><small>4KOMA NIKKI</small><b>４コマ日記</b><p>今日の気持ちを、<br />4コマ漫画に。</p><div><i>1</i><i>2</i><i>3</i><i>4</i></div></div></div><footer><h3 data-i18n="work2Title">4komanikki（４コマ日記）</h3><p data-i18n="work2Desc">書いた日記をAIがやさしい4コマにしてくれる、心を残すための日記アプリです。</p><a class="work-link" href="https://4komanikki.jp/" target="_blank" rel="noopener"><span data-i18n="visitSite">サイトを見る</span> ↗</a></footer></article>
-            <article class="work-window work-window--three" tabindex="0"><header><span class="traffic"><i></i><i></i><i></i></span><small>HeyLog.app</small><em>MACOS APP / OUR PRODUCT</em></header><div class="work-art work-art--heylog"><div><b>HeyLog</b><p>Ask anything, save anywhere.</p><span>⌥ SPACE</span></div></div><footer><h3 data-i18n="work3Title">自社プロダクト「HeyLog」</h3><p data-i18n="work3Desc">テキストや音声でAIに質問し、回答を各種アプリへ保存できるmacOSアプリです。</p></footer></article>
-          </div><footer class="dock"><i>&lt;/&gt;</i><i></i><i></i></footer></div>
+      <section class="section section--paper" id="services">
+        <div class="container">
+          <div class="section-head reveal"><div><p class="eyebrow">Services</p><h2 data-i18n="servicesTitle"><span class="phrase">企画から</span><span class="phrase">運用まで、</span><span class="phrase">ひと続きで。</span></h2></div><p class="section-lead" data-i18n="servicesSub">事業のフェーズに合わせて、必要な専門性を組み合わせます。</p></div>
+          <div class="services">
+            <article class="service-card reveal">
+              <div class="service-art" aria-hidden="true"><div class="mk-browser"><header><i></i><i></i><i></i></header><div><span class="mk-line mk-line--title"></span><span class="mk-line"></span><span class="mk-line mk-line--short"></span><div class="mk-grid"><i></i><i></i><i></i></div></div></div></div>
+              <div class="service-body"><small>WEB</small><h3 data-i18n="svc1Title">Webアプリ開発</h3><p data-i18n="svc1Desc">業務システムからSaaS、ECまで。新規サービスのMVP開発、既存サービスの機能追加・改善、技術選定やクラウド設計も対応します。</p><ul><li data-i18n="svc1I1">フロントエンド・バックエンド</li><li data-i18n="svc1I2">クラウド・API設計</li><li data-i18n="svc1I3">パフォーマンス改善</li></ul><a href="services/web-development.html" class="text-link"><span data-i18n="serviceDetail">詳しく見る</span><span aria-hidden="true">→</span></a></div>
+            </article>
+            <article class="service-card reveal reveal--delay">
+              <div class="service-art" aria-hidden="true"><div class="mk-phone mk-phone2"></div><div class="mk-phone"><span class="mk-line mk-line--short"></span><div class="mk-card"></div><span class="mk-line"></span><span class="mk-line mk-line--short"></span><nav><i></i><i></i><i></i><i></i></nav></div></div>
+              <div class="service-body"><small>MOBILE</small><h3 data-i18n="svc2Title">モバイルアプリ開発</h3><p data-i18n="svc2Desc">iOS・Androidに対応。日常に溶け込む快適なアプリ体験を、新規開発から既存アプリの機能追加・リニューアルまで届けます。</p><ul><li data-i18n="svc2I1">iOS・Android</li><li data-i18n="svc2I2">クロスプラットフォーム</li><li data-i18n="svc2I3">ストア申請・リリース支援</li></ul><a href="services/mobile-development.html" class="text-link"><span data-i18n="serviceDetail">詳しく見る</span><span aria-hidden="true">→</span></a></div>
+            </article>
+            <article class="service-card reveal reveal--delay">
+              <div class="service-art" aria-hidden="true"><div class="mk-ai"><p><span data-i18n="aiPrompt">さっき決めたAPI設計の要点をまとめて</span><i></i></p><div><span></span><span></span><span></span></div><footer><em>Obsidian</em><em>Notion</em></footer></div></div>
+              <div class="service-body"><small>DESKTOP / AI</small><h3 data-i18n="svc3Title"><span class="phrase">デスクトップアプリ・</span><span class="phrase">AIツール開発</span></h3><p data-i18n="svc3Desc">macOSアプリやAIを組み込んだツールを開発します。AI機能や外部APIの組み込みから、リリース後の運用まで支援します。</p><ul><li data-i18n="svc3I1">macOSアプリ</li><li data-i18n="svc3I2">AI連携・音声入力</li><li data-i18n="svc3I3">Obsidian・Notion等のAPI連携</li></ul><a href="services/ai-tools-development.html" class="text-link"><span data-i18n="serviceDetail">詳しく見る</span><span aria-hidden="true">→</span></a></div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="light-section" id="process"><div class="container section-pad"><div class="section-title reveal"><span>03</span><div><p>HOW WE WORK</p><h2 data-i18n="processTitle"><span class="phrase">小さくつくり、</span><span class="phrase">早く出す。</span></h2></div></div><p class="section-lead reveal" data-i18n="processSub">要件整理からリリース後まで、同じチームが伴走します。</p><div class="pipeline reveal">
-        <article><header><i>✓</i><span>STAGE 01</span></header><h3 data-i18n="step1Title">ヒアリング</h3><p data-i18n="step1Desc">目的や課題をお聞きし、現実的なプランをご提案します。</p><small>⏱ 1–2 WEEKS</small></article><article><header><i>✓</i><span>STAGE 02</span></header><h3 data-i18n="step2Title">設計・提案</h3><p data-i18n="step2Desc">要件と優先順位を整理し、長期運用を見据えた技術を選びます。</p><small>⏱ 2–4 WEEKS</small></article><article><header><i>✓</i><span>STAGE 03</span></header><h3 data-i18n="step3Title">開発・検証</h3><p data-i18n="step3Desc">短いサイクルで実装と確認を重ねます。</p><small>⏱ 4–12 WEEKS</small></article><article><header><i>✓</i><span>STAGE 04</span></header><h3 data-i18n="step4Title">リリース</h3><p data-i18n="step4Desc">本番への展開と、安定稼働までを支援します。</p><small>⏱ 1–2 WEEKS</small></article><article class="is-running"><header><i>●</i><span>RUNNING</span></header><h3 data-i18n="step5Title">運用・改善</h3><p data-i18n="step5Desc">リリース後も改善を続け、プロダクトの成長を支えます。</p><small>↻ CONTINUOUS</small></article>
-      </div><div class="pipeline-terminal reveal"><p><b>$</b> codetas pipeline status</p><p>✔ discovery&nbsp;&nbsp;&nbsp; completed</p><p>✔ design&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; completed</p><p>✔ build&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; completed</p><p>● operate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; running — uptime 99.9%</p></div></div></section>
+      <section class="section section--dark" id="works">
+        <div class="container">
+          <div class="section-head reveal"><div><p class="eyebrow">Works</p><h2 data-i18n="worksTitle">これまでの仕事</h2></div><p class="section-lead" data-i18n="worksSub">企画から開発・運営まで手がけているプロダクトをご紹介します。</p></div>
+          <div class="works">
+            <article class="work reveal">
+              <div class="work-art work-art--bebireci" aria-hidden="true"><div class="wa-bebi"><header><i>べ</i>べびレシ</header><div><b>🥕</b><b>🥣</b></div><p><em>5〜6ヶ月</em><em>7〜8ヶ月</em></p></div></div>
+              <div class="work-body"><div class="work-tags"><span>WEB APP</span><span>COMMUNITY</span></div><h3 data-i18n="work1Title">BebiReci（べびレシ）</h3><p data-i18n="work1Desc">食材・月齢・除外食材から探せる、乳幼児向けレシピ共有アプリです。</p><a class="text-link" href="https://bebi-reci.jp/" target="_blank" rel="noopener"><span data-i18n="visitSite">サイトを見る</span><span aria-hidden="true">↗</span></a></div>
+            </article>
+            <article class="work reveal reveal--delay">
+              <div class="work-art work-art--komanikki" aria-hidden="true"><div class="wa-koma"><small>4KOMA NIKKI</small><b>４コマ日記</b><div><i></i><i></i><i></i><i></i></div></div></div>
+              <div class="work-body"><div class="work-tags"><span>WEB APP</span><span>GENERATIVE AI</span></div><h3 data-i18n="work2Title">4komanikki（４コマ日記）</h3><p data-i18n="work2Desc">書いた日記をAIがやさしい4コマ漫画にしてくれる、心を残すための日記アプリです。</p><a class="text-link" href="https://4komanikki.jp/" target="_blank" rel="noopener"><span data-i18n="visitSite">サイトを見る</span><span aria-hidden="true">↗</span></a></div>
+            </article>
+            <article class="work reveal reveal--delay">
+              <div class="work-art work-art--heylog" aria-hidden="true"><div class="wa-hey"><b>HeyLog</b><p>Ask anything, save anywhere.</p><span>⌥ SPACE</span></div></div>
+              <div class="work-body"><div class="work-tags"><span class="is-own" data-i18n="ownProduct">自社プロダクト</span><span>MACOS APP</span></div><h3>HeyLog</h3><p data-i18n="work3Desc">テキストや音声でAIに質問し、回答をObsidianやNotionなどへ保存できるmacOSアプリです。</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-      <section class="faq grid-dark" id="faq"><div class="container section-pad"><div class="section-title section-title--dark reveal"><span>04</span><div><p>FAQ</p><h2 data-i18n="faqTitle">よくあるご質問</h2></div></div><div class="chat reveal"><header><span class="brand-mark">&lt;/&gt;</span><div><b>CodeTas Support</b><small><i></i> online</small></div></header><div class="messages">
-        <div class="conversation"><p class="question" data-i18n="faq1Q">まだアイデア段階ですが、相談できますか？</p><div class="answer"><span class="brand-mark">&lt;/&gt;</span><p data-i18n="faq1A">もちろんです。課題の整理からご一緒しますので、まずは現状をお聞かせください。</p></div></div><div class="conversation"><p class="question" data-i18n="faq2Q">費用はどのように決まりますか？</p><div class="answer"><span class="brand-mark">&lt;/&gt;</span><p data-i18n="faq2A">要件を整理したうえで、スコープに応じてお見積もりします。小さく始めるプランも可能です。</p></div></div><div class="conversation"><p class="question" data-i18n="faq3Q">開発期間はどのくらいかかりますか？</p><div class="answer"><span class="brand-mark">&lt;/&gt;</span><p data-i18n="faq3A">規模によりますが、MVPなら2〜3ヶ月が目安です。</p></div></div><div class="typing"><span class="brand-mark">&lt;/&gt;</span><p><i></i><i></i><i></i></p></div><a href="#contact"><span data-i18n="faqMore">その他のご質問はお気軽に</span> →</a>
-      </div></div></div></section>
+      <section class="section section--paper" id="process">
+        <div class="container">
+          <div class="section-head reveal"><div><p class="eyebrow">Process</p><h2 data-i18n="processTitle"><span class="phrase">小さくつくり、</span><span class="phrase">早く出す。</span></h2></div><p class="section-lead" data-i18n="processSub">要件整理からリリース後まで、同じチームが伴走します。期間は一般的な目安です。</p></div>
+          <ol class="process reveal">
+            <li><i>01</i><h3 data-i18n="step1Title">ヒアリング</h3><p data-i18n="step1Desc">目的や課題をお聞きし、現実的なプランをご提案します。</p><small data-i18n="step1Time">1〜2週間</small></li>
+            <li><i>02</i><h3 data-i18n="step2Title">設計・提案</h3><p data-i18n="step2Desc">要件と優先順位を整理し、長期運用を見据えた技術を選びます。</p><small data-i18n="step2Time">2〜4週間</small></li>
+            <li><i>03</i><h3 data-i18n="step3Title">開発・検証</h3><p data-i18n="step3Desc">短いサイクルで実装と確認を重ね、認識のズレを早めに解消します。</p><small data-i18n="step3Time">4〜12週間</small></li>
+            <li><i>04</i><h3 data-i18n="step4Title">リリース</h3><p data-i18n="step4Desc">本番への展開と、安定稼働までを支援します。</p><small data-i18n="step4Time">1〜2週間</small></li>
+            <li><i>05</i><h3 data-i18n="step5Title">運用・改善</h3><p data-i18n="step5Desc">リリース後も改善を続け、プロダクトの成長を支えます。</p><small data-i18n="step5Time">継続</small></li>
+          </ol>
+        </div>
+      </section>
 
-      <section class="contact grid-dark" id="contact"><div class="contact-glow"></div><div class="container contact-grid"><div class="reveal"><p class="kicker">LET'S BUILD TOGETHER</p><h2 data-i18n="contactTitle"><span class="phrase">まずは、</span><span class="phrase">話すことから。</span></h2><p data-i18n="contactSub">アイデア段階でも大丈夫です。課題の整理からご一緒します。</p><div class="contact-action"><a class="button button--large" href="mailto:support@codetas.com"><span data-i18n="contactCta">メールで相談する</span><span>→</span></a><small data-i18n="contactNote">通常2営業日以内にご返信します</small></div></div><div class="mail-window reveal reveal--delay"><div class="window-bar"><span class="traffic"><i></i><i></i><i></i></span><span>✉ <i data-i18n="newMessage">新規メッセージ</i></span></div><p><b>To:</b><a href="mailto:support@codetas.com">support@codetas.com</a></p><p><b>Subject:</b><span data-i18n="mailSubject">プロジェクトのご相談</span></p><div><span data-i18n="mailBody">はじめまして。新しいプロダクトについてご相談したく、ご連絡しました。一度お話しできませんか？</span><i class="cursor"></i></div><footer><a class="button button--small" href="mailto:support@codetas.com?subject=プロジェクトのご相談"><span data-i18n="send">送信</span> <span>➤</span></a><small>NDA OK</small></footer></div></div></section>
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head section-head--center reveal"><p class="eyebrow">FAQ</p><h2 data-i18n="faqTitle">よくあるご質問</h2></div>
+          <div class="faq-list reveal">
+            <details open><summary data-i18n="faq1Q">まだアイデア段階ですが、相談できますか？</summary><p data-i18n="faq1A">もちろんです。課題の整理からご一緒しますので、まずは現状をお聞かせください。</p></details>
+            <details><summary data-i18n="faq2Q">費用はどのように決まりますか？</summary><p data-i18n="faq2A">要件を整理したうえで、スコープに応じてお見積もりします。小さく始めるプランも可能です。</p></details>
+            <details><summary data-i18n="faq3Q">開発期間はどのくらいかかりますか？</summary><p data-i18n="faq3A">規模によりますが、MVPなら2〜3ヶ月が目安です。</p></details>
+            <details><summary data-i18n="faq4Q">秘密保持契約（NDA）は結べますか？</summary><p data-i18n="faq4A">はい、ご相談の段階から締結可能です。アイデアや事業情報も安心してお話しください。</p></details>
+            <details><summary data-i18n="faq5Q">リリース後の運用や改善もお願いできますか？</summary><p data-i18n="faq5A">はい。リリース後の保守・運用や機能改善も、開発を担当したチームが継続して支援します。</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="contact-glow"></div>
+        <div class="container contact-grid">
+          <div class="reveal">
+            <p class="eyebrow" style="color:var(--cyan)">Contact</p>
+            <h2 data-i18n="contactTitle"><span class="phrase">まずは、</span><span class="phrase">話すことから。</span></h2>
+            <p class="contact-sub" data-i18n="contactSub">アイデア段階でも大丈夫です。課題の整理からご一緒します。</p>
+            <div class="contact-action"><a class="button button--large" href="mailto:support@codetas.com?subject=%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87" data-mailto><span data-i18n="contactCta">メールで相談する</span><span aria-hidden="true">→</span></a></div>
+            <p class="contact-mail"><a href="mailto:support@codetas.com">support@codetas.com</a></p>
+          </div>
+          <div class="contact-card reveal reveal--delay">
+            <h3 data-i18n="prepTitle">ご相談時にお知らせいただくとスムーズです</h3>
+            <p data-i18n="prepSub">決まっていない項目があっても問題ありません。</p>
+            <ul><li data-i18n="prep1">実現したいこと・現在の課題</li><li data-i18n="prep2">想定しているスケジュール</li><li data-i18n="prep3">ご予算感（未定でも可）</li><li data-i18n="prep4">参考にしているサービスや資料</li></ul>
+            <div class="contact-meta"><span data-i18n="meta1">2営業日以内にご返信</span><span data-i18n="meta2">NDA締結可</span></div>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer class="site-footer"><div class="container"><div class="brand"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span><small>WEB &amp; MOBILE DEVELOPMENT PARTNER</small></div><p>© <span data-year></span> CodeTas. All rights reserved.</p></div></footer>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a class="brand" href="#top" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span></a><p data-i18n="footerDesc">Web・モバイルアプリ・AIツールの企画から運用までを支援する開発パートナー。</p></div>
+        <div><h4>SERVICES</h4><ul><li><a href="services/web-development.html" data-i18n="svc1Title">Webアプリ開発</a></li><li><a href="services/mobile-development.html" data-i18n="svc2Title">モバイルアプリ開発</a></li><li><a href="services/ai-tools-development.html" data-i18n="footerSvc3">デスクトップ・AIツール開発</a></li></ul></div>
+        <div><h4>SITE</h4><ul><li><a href="#works" data-i18n="navWorks">実績</a></li><li><a href="#process" data-i18n="navProcess">進め方</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+        <div><h4>CONTACT</h4><ul><li><a href="mailto:support@codetas.com">support@codetas.com</a></li><li><a href="#contact" data-i18n="navContact">お問い合わせ</a></li></ul></div>
+      </div>
+      <div class="container footer-bottom"><p>© <span data-year></span> CodeTas. All rights reserved.</p><p>WEB &amp; MOBILE DEVELOPMENT PARTNER</p></div>
+    </footer>
   </body>
 </html>
