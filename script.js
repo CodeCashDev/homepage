@@ -8,64 +8,39 @@ function menuLabel(willBeOpen) {
   return en ? "Open menu" : "メニューを開く";
 }
 
-function setMenu(open) {
-  menuButton?.setAttribute("aria-expanded", String(open));
-  menuButton?.setAttribute("aria-label", menuLabel(open));
-  mobileNav?.classList.toggle("is-open", open);
-}
-
-menuButton?.addEventListener("click", () => setMenu(menuButton.getAttribute("aria-expanded") !== "true"));
-mobileNav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && mobileNav?.classList.contains("is-open")) { setMenu(false); menuButton?.focus(); }
+menuButton?.addEventListener("click", () => {
+  const open = menuButton.getAttribute("aria-expanded") === "true";
+  menuButton.setAttribute("aria-expanded", String(!open));
+  menuButton.setAttribute("aria-label", menuLabel(!open));
+  mobileNav?.classList.toggle("is-open", !open);
 });
+
+mobileNav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+  menuButton?.setAttribute("aria-expanded", "false");
+  mobileNav.classList.remove("is-open");
+}));
 
 const translations = {
   skipLink:"Skip to main content",
   navServices:"Services",navWorks:"Works",navProcess:"Process",navContact:"Contact",
   heroT1:"A development partner that ",heroT2:"moves your business forward",heroT3:".",heroT4:"",
-  heroSub:"We support web services, mobile apps, business systems, and AI tools end to end — from planning and design through development and operation. Feel free to reach out before your requirements are finalized.",
-  heroCta1:"Talk to us",heroCta2:"See our work",
-  heroPoint1:"Early-stage ideas welcome",heroPoint2:"NDA available",heroPoint3:"Reply within 2 business days",
-  cap1:"Web apps & SaaS",cap2:"Business systems",cap3:"iOS / Android",cap4:"macOS apps",cap5:"AI & LLM integration",cap6:"Cloud & API design",
-  whyTitle:"Development that doesn’t stop at launch.",whySub:"We work backward from your business goals and build what matters, in the right order.",
-  why1Title:"One team, from planning to operation",why1Desc:"The same team handles scoping, design, development, and post-launch improvement — so your intent never gets lost in hand-offs.",
-  why2Title:"Hands-on skills from our own products",why2Desc:"We plan and run our own web services and macOS app, and bring that practical know-how to every client project.",
-  why3Title:"Build small. Ship early.",why3Desc:"We validate ideas with an MVP first, then iterate in short cycles — moving forward without wasted budget.",
+  heroSub:"CodeTas is a development partner for web services, mobile apps, business systems, and AI tools — from planning and design through development and operation. We're happy to talk even before requirements are finalized.",heroCta1:"Talk to us",heroCta2:"See what we do",
+  term1:"Strategy & scoping",term2:"UI/UX design",term3:"Build & verify",term4:"Operating & growing…",
   buildTitle:"From code to something real.",buildStep1:"Coding",buildStep2:"Test",buildStep3:"Build",buildStep4:"Release",buildStep5:"App ready",testRunning:"Checking quality",testPassed:"TESTS PASSED",testTime:"Run time",buildOptimizing:"Optimizing",buildReady:"Production bundle ready",releaseTitle:"Released to the world.",releaseLive:"Production is live",buildScrollHint:"Scroll to move development forward ↓",appNav:"Today  Projects  Reports",appCta:"+ New task",appListTitle:"Today’s tasks",appTask1:"Review homepage design",appTask2:"Implement login flow",appTask3:"Write release notes",appStatTitle:"Progress today",appStatDone:"18/22 tasks done",appSync:"synced",
   servicesTitle:"Planning to operation, in one continuous line.",servicesSub:"We combine the expertise your business phase requires.",
-  serviceDetail:"Learn more",
-  svc1Title:"Web App Development",svc1Desc:"From internal systems to SaaS and e-commerce. MVPs for new services, improvements to existing ones, technology selection, and cloud architecture.",svc1I1:"Frontend & backend",svc1I2:"Cloud & API design",svc1I3:"Performance tuning",
-  svc2Title:"Mobile App Development",svc2Desc:"iOS and Android apps that fit naturally into daily life — from new builds to feature additions and renewals.",svc2I1:"iOS & Android",svc2I2:"Cross-platform",svc2I3:"Store submission & release",
-  svc3Title:"Desktop App & AI Tool Development",svc3Desc:"macOS apps and AI-powered tools — from integrating AI features and external APIs to post-launch operation.",svc3I1:"macOS apps",svc3I2:"AI & voice input",svc3I3:"Obsidian / Notion API integration",
-  aiPrompt:"Summarize the API design we agreed on",
-  worksTitle:"Our work",worksSub:"Products we have planned, built, and continue to operate.",
-  work1Title:"BebiReci",work1Desc:"A recipe-sharing app for babies and toddlers, searchable by ingredient, age, and excluded foods.",
-  work2Title:"4komanikki",work2Desc:"A diary app where AI gently turns your entries into four-panel comics.",
-  work3Desc:"A macOS app for asking AI by text or voice and saving answers to apps like Obsidian and Notion.",ownProduct:"OUR PRODUCT",visitSite:"Visit website",
-  processTitle:"Build small. Ship early.",processSub:"One team stays with you from scoping through post-launch. Durations are typical estimates.",
-  step1Title:"Discovery",step1Desc:"We listen to your goals and challenges, then propose a practical plan.",step1Time:"1–2 weeks",
-  step2Title:"Design & proposal",step2Desc:"We prioritize requirements and choose technology built for long-term operation.",step2Time:"2–4 weeks",
-  step3Title:"Build & verify",step3Desc:"Short cycles of implementation and review keep everyone aligned.",step3Time:"4–12 weeks",
-  step4Title:"Release",step4Desc:"We support production rollout through to stable operation.",step4Time:"1–2 weeks",
-  step5Title:"Operate & improve",step5Desc:"We keep improving your product after launch to support its growth.",step5Time:"Ongoing",
-  faqTitle:"Frequently asked questions",
-  faq1Q:"Can I talk to you while my idea is still early?",faq1A:"Absolutely. We can start by organizing the problem together — just tell us where things stand.",
-  faq2Q:"How is the cost determined?",faq2A:"After clarifying requirements, we estimate based on scope. Starting small is also possible.",
-  faq3Q:"How long does development take?",faq3A:"It depends on scope, but an MVP typically takes two to three months.",
-  faq4Q:"Can you sign an NDA?",faq4A:"Yes, we can sign one from the first conversation, so you can share your ideas and business details with confidence.",
-  faq5Q:"Can you handle operation and improvements after launch?",faq5A:"Yes. The team that built your product continues to support maintenance, operation, and new features.",
-  contactTitle:"It starts with a conversation.",contactSub:"Early-stage ideas are welcome. We’ll help you clarify the problem.",contactCta:"Email us",
-  prepTitle:"Helpful things to include",prepSub:"It’s fine if some of these are still undecided.",
-  prep1:"What you want to achieve and current challenges",prep2:"Your expected timeline",prep3:"Rough budget (undecided is OK)",prep4:"Reference services or documents",
-  meta1:"Reply within 2 business days",meta2:"NDA available",
-  footerDesc:"A development partner for web, mobile, and AI tools — from planning through operation.",footerSvc3:"Desktop & AI Tool Development"
+  serviceDetail:"View details →",
+  svc1Title:"Web App Development",svc1Desc:"From internal systems to SaaS and e-commerce — usable, scalable web products. We handle MVP development for new services, feature additions and improvements for existing services, technology selection, and cloud architecture.",svc1I1:"Frontend & backend",svc1I2:"Cloud infrastructure & API design",svc1I3:"Performance optimization",
+  svc2Title:"Mobile App Development",svc2Desc:"iOS and Android. Comfortable app experiences that fit into daily life. From new app development to feature additions and renewals.",svc2I1:"iOS & Android apps",svc2I2:"Cross-platform",svc2I3:"Store submission & release support",
+  svc3Title:"Desktop App & AI Tool Development",svc3Desc:"macOS apps and AI-powered tools, built with know-how from our own products. We provide end-to-end support including AI integration, external API integration, and post-launch operations.",svc3I1:"macOS desktop apps",svc3I2:"AI integration, text & voice input",svc3I3:"API integrations such as Obsidian and Notion",aiPrompt:"Summarize the API design we just agreed on",exportTo:"Export to",saved:"Saved to local history",
+  worksTitle:"Our work",worksSub:"A selection of products we have built and operate.",worksHint:"Click a window to bring it to the front",work1Title:"BebiReci",work1Desc:"A recipe-sharing app for babies and toddlers, searchable by ingredient, age, and excluded foods.",work2Title:"4komanikki",work2Desc:"A diary app that gently turns your written memories into four-panel comics with AI.",work3Title:"HeyLog — our own product",work3Desc:"A macOS app for asking AI by text or voice and saving answers to your favorite apps.",visitSite:"Visit website",
+  processTitle:"Build small. Ship early.",processSub:"One team stays with you from scoping through post-launch.",step1Title:"Discovery",step1Desc:"We listen to your goals and challenges, then propose a practical plan.",step2Title:"Design & proposal",step2Desc:"We organize requirements and choose technology for long-term operation.",step3Title:"Build & verify",step3Desc:"We implement and review in short, transparent cycles.",step4Title:"Release",step4Desc:"We support production rollout and stable operation.",step5Title:"Operate & improve",step5Desc:"We keep improving your product after launch.",
+  faqTitle:"Frequently asked questions",faq1Q:"Can I talk to you while my idea is still early?",faq1A:"Absolutely. We can start by organizing the problem together, so just tell us where things stand.",faq2Q:"How is the cost determined?",faq2A:"After clarifying requirements, we estimate based on scope. Starting with a small plan is also possible.",faq3Q:"How long does development take?",faq3A:"It depends on scope, but an MVP typically takes two to three months.",faq4Q:"Can you sign an NDA?",faq4A:"Yes, we can sign one from the first conversation, so you can share your ideas and business details with confidence.",faq5Q:"Can you handle operation and improvements after launch?",faq5A:"Yes. The team that built your product continues to support maintenance, operation, and new features.",faqMore:"For any other questions",
+  contactTitle:"It starts with a conversation.",contactSub:"An early-stage idea is welcome. We will help you clarify the problem.",contactCta:"Email us",contactNote:"We usually reply within two business days",newMessage:"New message",mailSubject:"Project inquiry",mailBody:"Hello. I would like to discuss a new product with you. Could we schedule a conversation?",send:"Send",
+  footerDesc:"A development partner for web, mobile, and AI tools — from planning through operation.",footerSvc1:"Web App Development",footerSvc2:"Mobile App Development",footerSvc3:"Desktop & AI Tool Development"
 };
 
 const japanese = {};
 document.querySelectorAll("[data-i18n]").forEach((el) => { japanese[el.dataset.i18n] = el.innerHTML; });
-
-const mailSubject = { ja:"プロジェクトのご相談", en:"Project inquiry" };
 
 function setLanguage(lang) {
   document.documentElement.lang = lang;
@@ -73,25 +48,16 @@ function setLanguage(lang) {
     const value = lang === "en" ? translations[el.dataset.i18n] : japanese[el.dataset.i18n];
     if (value !== undefined) el.innerHTML = value;
   });
-  document.querySelectorAll("[data-lang]").forEach((button) => {
-    const active = button.dataset.lang === lang;
-    button.classList.toggle("is-active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
-  document.querySelectorAll("[data-mailto]").forEach((link) => {
-    link.href = `mailto:support@codetas.com?subject=${encodeURIComponent(mailSubject[lang])}`;
-  });
+  document.querySelectorAll("[data-lang]").forEach((button) => button.classList.toggle("is-active", button.dataset.lang === lang));
   menuButton?.setAttribute("aria-label", menuLabel(menuButton.getAttribute("aria-expanded") === "true"));
-  try { localStorage.setItem("codetas-lang", lang); } catch {}
+  localStorage.setItem("codetas-lang", lang);
 }
 
 document.querySelectorAll("[data-lang]").forEach((button) => button.addEventListener("click", () => {
   setLanguage(button.dataset.lang);
   updateScroll();
 }));
-let savedLang = null;
-try { savedLang = localStorage.getItem("codetas-lang"); } catch {}
-setLanguage(savedLang === "en" ? "en" : "ja");
+setLanguage(localStorage.getItem("codetas-lang") === "en" ? "en" : "ja");
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -99,7 +65,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     entry.target.classList.add("is-visible");
     revealObserver.unobserve(entry.target);
   });
-}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+}, { threshold: 0.1 });
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
 const build = document.querySelector("[data-build]");
@@ -213,4 +179,15 @@ window.addEventListener("scroll", () => {
 }, { passive:true });
 updateScroll();
 
+document.querySelectorAll(".work-window").forEach((windowEl) => {
+  const front = () => {
+    document.querySelectorAll(".work-window").forEach((item) => item.classList.remove("is-front"));
+    windowEl.classList.add("is-front");
+  };
+  windowEl.addEventListener("click", front);
+  windowEl.addEventListener("focus", front);
+});
+
 document.querySelectorAll("[data-year]").forEach((element) => { element.textContent = new Date().getFullYear(); });
+const clock = document.querySelector("[data-clock]");
+if (clock) clock.textContent = new Intl.DateTimeFormat("ja-JP", { timeZone:"Asia/Tokyo", hour:"2-digit", minute:"2-digit", hour12:false }).format(new Date());
