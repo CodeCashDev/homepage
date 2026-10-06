@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css?v=20261005b" />
   <style>
     .service-hero{padding-top:calc(70px + 80px);color:#fff;text-align:center}
     .service-hero h1{font-size:clamp(36px,4vw,56px);font-weight:900;letter-spacing:-.035em;margin:0 0 20px;line-height:1.15}
@@ -47,7 +47,7 @@
     .pain-list li::before{content:"→";color:var(--blue);font-weight:700;flex-shrink:0}
     .approach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
     .approach-step{padding:28px 24px;border:1.5px solid var(--line);border-radius:14px;background:#fff}
-    .approach-step h4{margin:0 0 8px;font-size:18px}
+    .approach-step h4{margin:0 0 8px;color:var(--ink);font-size:18px}
     .approach-step h4 small{display:block;color:var(--blue);font:400 11px var(--mono);letter-spacing:.08em;margin-bottom:4px}
     .approach-step p{margin:0;color:var(--muted);font-size:14px;line-height:1.9}
     @media(max-width:720px){.approach-grid{grid-template-columns:1fr}}
@@ -56,7 +56,7 @@
        480px で 36px に収束し、それ以上の幅は上の clamp のまま変えない */
     @media(max-width:480px){.service-hero h1{font-size:clamp(26px,8.2vw,36px)}}
     .service-cta {text-align:center;padding-block:80px;border-top:1px solid rgba(255,255,255,.08)}
-    .service-cta h2 {margin:0 0 16px;font-size:clamp(24px,2.6vw,36px)}
+    .service-cta h2 {margin:0 0 16px;color:#fff;font-size:clamp(24px,2.6vw,36px)}
     .service-cta p {color:var(--dark-muted);margin:0 0 32px;font-size:15px}
     .service-section h2 {font-size:clamp(24px,2.8vw,36px);margin:0 0 20px;letter-spacing:-.025em}
     .back-link {display:inline-flex;align-items:center;gap:8px;color:var(--dark-muted);font:400 12px var(--mono);margin-bottom:30px}
@@ -75,7 +75,11 @@
         <a href="../index.html#faq">FAQ</a>
         <a href="../index.html#contact">お問い合わせ</a>
       </nav>
+      <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" data-menu-button><span></span><span></span></button>
     </div>
+    <nav class="mobile-nav" data-mobile-nav aria-label="モバイルナビゲーション">
+      <a href="../index.html#services">サービス</a><a href="../index.html#works">実績</a><a href="../index.html#process">進め方</a><a href="../index.html#faq">FAQ</a><a href="../index.html#contact">お問い合わせ</a>
+    </nav>
   </header>
 
   <main id="main" tabindex="-1">
@@ -140,10 +144,27 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <a class="brand" href="../" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span><small>© CodeTas</small></a>
-      <p>Web・モバイルアプリ・AIツール開発</p>
+    <div class="container footer-main">
+      <div class="footer-brand"><a class="brand" href="../" aria-label="CodeTas ホーム"><span class="brand-mark">&lt;/&gt;</span><span>CodeTas</span></a><p>Web・モバイルアプリ・AIツールの企画から運用までを支援する開発パートナー。</p></div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <div><p class="footer-heading">SERVICES</p><ul><li><a href="web-development.html">Webアプリ開発</a></li><li><a href="mobile-development.html">モバイルアプリ開発</a></li><li><a href="ai-tools-development.html">デスクトップ・AIツール開発</a></li></ul></div>
+        <div><p class="footer-heading">SITE</p><ul><li><a href="../index.html#works">実績</a></li><li><a href="../index.html#process">進め方</a></li><li><a href="../index.html#faq">FAQ</a></li></ul></div>
+        <div><p class="footer-heading">CONTACT</p><ul><li><a href="mailto:support@codetas.com">support@codetas.com</a></li><li><a href="../index.html#contact">お問い合わせ</a></li></ul></div>
+      </nav>
     </div>
+    <div class="container"><p>© <span data-year></span> CodeTas. All rights reserved.</p><p>WEB &amp; MOBILE DEVELOPMENT PARTNER</p></div>
   </footer>
+  <script>
+    const menuButton = document.querySelector("[data-menu-button]");
+    const mobileNav = document.querySelector("[data-mobile-nav]");
+    const setMenu = (open) => {
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+      mobileNav.classList.toggle("is-open", open);
+    };
+    menuButton.addEventListener("click", () => setMenu(menuButton.getAttribute("aria-expanded") !== "true"));
+    mobileNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+    document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
+  </script>
 </body>
 </html>

@@ -165,3 +165,53 @@ h1,h2,h3,.hero-lead,.section-lead,.works-hint,.blueprint-copy>p,.blueprint-copy 
   .hero h1{font-size:clamp(30px,9.2vw,52px)}
   .hero h1 em{display:inline}
 }
+
+/* ---- フッターのリンク群 ---- */
+.site-footer>.footer-main{min-height:0;display:grid;grid-template-columns:1.3fr 2fr;gap:40px;align-items:start;padding-block:48px 40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand p{max-width:300px;margin:14px 0 0;color:#7b879b;font:400 12px/1.9 var(--jp)}
+.footer-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.footer-nav .footer-heading{margin:0 0 14px;color:#c6d0e0;font:500 11px var(--mono);letter-spacing:.12em}
+.footer-nav ul{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+.footer-nav a{color:#7b879b;font-size:13px;transition:color .2s}
+.footer-nav a:hover{color:#fff}
+@media(max-width:720px){
+  .site-footer>.footer-main{grid-template-columns:1fr;gap:32px;padding-block:40px 32px;text-align:left}
+  .footer-nav{grid-template-columns:1fr 1fr}
+  .footer-nav>div:first-child{grid-column:1/-1}
+  .footer-brand .brand{justify-content:flex-start}
+}
+
+/* ---- ヒーロー: 相談のしやすさ ---- */
+.hero-points{display:flex;flex-wrap:wrap;gap:8px 22px;margin:28px 0 0;padding:0;list-style:none;color:var(--dark-muted);font-size:13px}
+.hero-points li{display:flex;align-items:center;gap:8px}
+.hero-points li::before{content:"✓";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:rgba(34,211,238,.12);color:var(--cyan);font:600 10px var(--mono)}
+
+/* ---- 実績: 種類ラベル ---- */
+.work-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.work-tags span{padding:2px 9px;border:1px solid rgba(255,255,255,.12);border-radius:99px;color:var(--dark-muted);font:400 10px var(--mono);letter-spacing:.06em}
+.work-tags span.is-own{border-color:rgba(34,211,238,.35);color:var(--cyan)}
+
+/* ---- 実績: PCではウィンドウを重ねずに並べる ---- */
+@media(min-width:721px){
+  .work-area{height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:36px 32px}
+  .work-window,.work-window--one,.work-window--two,.work-window--three{position:relative;inset:auto;width:auto;display:flex;flex-direction:column;cursor:default}
+  .work-window>footer{flex:1;display:flex;flex-direction:column}
+  .work-window>footer:has(.work-link){padding-right:20px}
+  .work-link{position:static;margin-top:auto;padding-top:14px}
+  .work-art{height:220px}
+  .bebi-phone{width:86%}
+}
+@media(min-width:721px) and (max-width:1080px){
+  .work-area{grid-template-columns:1fr 1fr}
+  .work-window--three{grid-column:1/-1}
+}
+
+/* ---- お問い合わせ: 相談時にあるとよい情報 ---- */
+.contact .contact-prep{max-width:480px;margin:-18px 0 36px}
+.contact .contact-prep .contact-prep-title{margin:0 0 12px;color:#c6d0e0;font-size:13px;line-height:1.8}
+.contact-prep ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.contact-prep li{display:flex;align-items:center;gap:10px;color:var(--dark-muted);font-size:14px}
+.contact-prep li::before{content:"✓";display:grid;place-items:center;flex:none;width:18px;height:18px;border-radius:5px;background:rgba(34,211,238,.12);color:var(--cyan);font:600 10px var(--mono)}
+
+/* メール画面風ウィンドウ内の行に、お問い合わせ本文用の余白（.contact p）が効いてしまうのを打ち消す */
+.contact .mail-window>p{max-width:none;margin:0}
